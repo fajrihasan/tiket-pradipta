@@ -1,0 +1,322 @@
+/* ---- background repeating text ---- */
+.bg-text-loop {
+	pointer-events: none;
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1.5rem;
+	overflow: hidden;
+	will-change: transform;
+}
+.bg-text-loop p {
+	font-size: clamp(80px, 11vw, 150px);
+	font-weight: 900;
+	letter-spacing: -0.02em;
+	white-space: nowrap;
+	color: rgba(255, 255, 255, 0.05);
+	line-height: 1;
+}
+
+/* ---- ticket card ---- */
+.ticket-card {
+	position: relative;
+	background: #0d0d0d;
+	border: 1px solid #2a2a2a;
+	border-radius: 28px;
+	overflow: hidden;
+	transition:
+		transform 0.3s ease,
+		box-shadow 0.3s ease,
+		border-color 0.3s ease;
+}
+.ticket-card:hover {
+	transform: translateY(-8px);
+	border-color: rgba(168, 85, 247, 0.6);
+	box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 32px 60px rgba(139, 92, 246, 0.25);
+}
+.ticket-card .notch-row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 0 20px;
+	margin: 0 -1px;
+}
+.ticket-card .notch-row .line {
+	flex: 1;
+	border-top: 1px dashed #3a3a3a;
+}
+.ticket-card .notch-row .dot {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: #1a0a2e;
+	border: 1px solid #3a3a3a;
+	flex-shrink: 0;
+}
+
+/* ---- modal overlay ---- */
+#order-modal {
+	display: none;
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.7);
+	backdrop-filter: blur(6px);
+	z-index: 100;
+	align-items: center;
+	justify-content: center;
+}
+#order-modal.active {
+	display: flex;
+}
+
+/* ---- step indicator ---- */
+.step-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #3a3a3a;
+	transition: background 0.3s;
+}
+.step-dot.active {
+	background: #a855f7;
+}
+
+/* ---- input field ---- */
+.form-input {
+	width: 100%;
+	background: #1f1f1f;
+	border: 1px solid #3a3a3a;
+	border-radius: 10px;
+	padding: 10px 14px;
+	color: #fff;
+	font-size: 14px;
+	outline: none;
+	transition: border-color 0.2s;
+}
+.form-input:focus {
+	border-color: #a855f7;
+}
+.form-input::placeholder {
+	color: #6b6b6b;
+}
+
+/* ---- badge popular ---- */
+.badge-popular {
+	position: absolute;
+	top: -1px;
+	right: 24px;
+	background: linear-gradient(
+		135deg,
+		#a855f7,
+		#7c3aed
+	);
+	color: #fff;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	padding: 4px 14px;
+	border-radius: 0 0 12px 12px;
+	text-transform: uppercase;
+}
+
+/* glow ring on popular card */
+.card-popular {
+	border-color: #7c3aed;
+	box-shadow: 0 0 0 1px #7c3aed40;
+}
+
+/* payment method buttons */
+.pay-btn {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 18px;
+	border: 1px solid #3a3a3a;
+	border-radius: 12px;
+	background: #1a1a1a;
+	color: #fff;
+	cursor: pointer;
+	transition:
+		border-color 0.2s,
+		background 0.2s;
+	width: 100%;
+}
+.pay-btn:hover,
+.pay-btn.selected {
+	border-color: #a855f7;
+	background: #2a1a3e;
+}
+
+/* success checkmark animation */
+@keyframes pop {
+	0% {
+		transform: scale(0);
+	}
+	70% {
+		transform: scale(1.15);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes scroll-down {
+				0% { 
+					transform: translateY(-50%); 
+				}
+				100% { 
+					transform: translateY(0); 
+				}
+}
+
+.pop-in {
+	animation: pop 0.4s ease forwards;
+}
+
+/* Animated Gradient Background */
+.animate-gradient {
+	background-size: 100% 200%;
+	animation: gradient-animation 20s ease infinite;
+}
+
+@keyframes gradient-animation {
+	0% {
+		background-position: 0% 0%;
+	}
+	50% {
+		background-position: 0% 100%;
+	}
+	100% {
+		background-position: 0% 0%;
+	}
+}
+
+/* Staggered Countdown Animation */
+.countdown-wrapper > div {
+	opacity: 0;
+	animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.countdown-wrapper > div:nth-child(1) {
+	animation-delay: 0.2s;
+}
+
+.countdown-wrapper > div:nth-child(2) {
+	animation-delay: 0.4s;
+}
+
+.countdown-wrapper > div:nth-child(3) {
+	animation-delay: 0.6s;
+}
+
+.countdown-wrapper > div:nth-child(4) {
+	animation-delay: 0.8s;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Hero Scroll Text Font */
+.hero-scroll-text p {
+	font-family: "League Gothic", sans-serif;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+}
+
+/* Star Background */
+.star {
+	position: absolute;
+	background: white;
+	border-radius: 50%;
+	opacity: 0;
+	animation: twinkle var(--duration) ease-in-out infinite;
+	animation-delay: var(--delay);
+}
+
+@keyframes twinkle {
+	0%, 100% { opacity: 0; transform: scale(0.5); }
+	50% { opacity: var(--opacity); transform: scale(1); }
+}
+
+/* Animated Underline for Nav Links */
+nav .hidden.md\:flex a,
+nav #mobile-menu a {
+	position: relative;
+	padding-bottom: 5px; /* Memberi ruang untuk garis bawah */
+}
+
+nav .hidden.md\:flex a::after,
+nav #mobile-menu a::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 1.5px;
+	background: #c084fc; /* Warna purple-400 */
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.3s ease-in-out;
+}
+
+nav .hidden.md\:flex a:hover::after,
+nav #mobile-menu a:hover::after {
+	transform: scaleX(1);
+	transform-origin: left;
+}
+
+/* ---- Marquee / Guest Star Section ---- */
+.marquee-track {
+	display: flex;
+	overflow: hidden;
+	user-select: none;
+}
+
+.marquee-group {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	min-width: 100%;
+	padding-right: 2rem; /* Memberi jarak agar looping seamless */
+	animation: scroll-x 20s linear infinite;
+}
+
+.marquee-track.fast .marquee-group {
+	animation-duration: 15s;
+}
+
+.marquee-track.reverse .marquee-group {
+	animation-direction: reverse;
+}
+
+@keyframes scroll-x {
+	from { transform: translateX(0); }
+	to { transform: translateX(-100%); }
+}
+
+.box {
+	width: 320px;
+	height: 240px;
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 1rem;
+	flex-shrink: 0;
+	transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.box:hover {
+	transform: scale(1.05);
+	border-color: rgba(168, 85, 247, 0.5);
+	background: rgba(255, 255, 255, 0.1);
+}

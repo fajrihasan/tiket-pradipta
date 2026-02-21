@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+	
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Tickets – Pradipta 26</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+
+	<body class="bg-[linear-gradient(180deg,#2b0948,#7c2ca4)] animate-gradient overflow-x-hidden min-h-screen text-white">
+		<!-- Star Background -->
+		<div id="star-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+		<!-- ===================== NAVBAR ===================== -->
+		<nav class="bg-[#271043] font-['Poppins'] text-white fixed w-full z-50">
+			<div
+				class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+				<div class="flex items-center gap-4">
+					<!-- Hamburger (mobile) -->
+					<button
+						id="menu-btn"
+						class="md:hidden focus:outline-none">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-7 w-7"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M4 6h16M4 12h16M4 18h16"/>
+						</svg>
+					</button>
+
+					<!-- Logo -->
+					<div class="flex items-center gap-3">
+						<a href="index.html">
+							<img src="images/logo-pradipta.png" alt="PRADIPTA" class="h-8 w-auto" />
+						</a>
+					</div>
+				</div>
+
+				<!-- Desktop menu -->
+				<div class="hidden md:flex gap-8 text-sm">
+
+					<a href="index.html" 
+						class="hover:text-purple-400">
+						Home
+					</a>
+					<a href="index.html#contact" 
+						class="hover:text-purple-400">
+						Contact
+					</a>
+					<a href="#"
+						class="hover:text-purple-400">
+						Blog
+					</a>
+					<a href="ticket.html"
+						class="hover:text-purple-400">
+						Ticket
+					</a>
+				</div>
+			</div>
+
+			<!-- Mobile dropdown -->
+			<div id="mobile-menu"
+				class="hidden md:hidden flex flex-col bg-[#271043]/50 backdrop-blur-md px-6 pb-6 pt-4 space-y-4 text-sm items-center text-center">
+				<a href="index.html"
+					class="hover:text-purple-300">
+					Home
+				</a>
+				<a href="index.html#contact"
+					class="hover:text-purple-300">
+					Contact
+				</a>
+				<a href="#" 
+					class="hover:text-purple-300">
+					Blog
+				</a>
+				<a href="ticket.html"
+					class="hover:text-purple-300">
+					Ticket
+				</a>
+			</div>
+		</nav>
+
+		<!-- ===================== HERO ===================== -->
+		<section class="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-24 pb-10">
+			<!-- background watermark text -->
+			<div class="bg-text-loop">
+				<p>GET YOUR TICKET NOW.</p>
+				<p class="translate-x-8">GET YOUR TICKET NOW.</p>
+				<p class="-translate-x-8">GET YOUR TICKET NOW.</p>
+				<p class="hidden md:block translate-x-16">GET YOUR TICKET NOW.</p>
+			</div>
+
+			<!-- hero content -->
+			<div class="relative z-10 text-center px-4">
+				<p class="text-xs uppercase tracking-[0.35em] text-purple-400 mb-4">
+					Pradipta 2026 · Spark of Radiance
+				</p>
+				<h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4">
+					Choose Your<br />
+					<span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">
+						Ticket
+					</span>
+				</h1>
+				<p class="text-gray-400 max-w-md mx-auto text-sm md:text-base">
+					Secure your spot for the most epic graduation event of 2026. Limited seats available.
+				</p>
+
+				<!-- Event info pills -->
+				<div class="flex flex-wrap justify-center gap-3 mt-8">
+					<span class="px-4 py-2 bg-purple-950 border border-purple-800 rounded-full text-xs tracking-wide">📅 9 Mei 2026</span>
+					<span class="px-4 py-2 bg-purple-950 border border-purple-800 rounded-full text-xs tracking-wide">📍 SMK Negeri 5 Malang</span>
+					<span class="px-4 py-2 bg-purple-950 border border-purple-800 rounded-full text-xs tracking-wide">🎫 Terbatas</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===================== TICKET CARDS ===================== -->
+		<section class="relative py-20 px-4 md:px-10">
+			<div class="max-w-6xl mx-auto">
+				<!-- section heading -->
+				<div class="text-center mb-14">
+					<h2 class="text-3xl md:text-4xl font-bold mb-3">Pilih Paket Tiketmu</h2>
+					<p class="text-gray-400 text-sm">Semua paket sudah termasuk akses ke seluruh rangkaian acara.</p>
+				</div>
+
+				<!-- cards grid -->
+				<div class="grid md:grid-cols-3 gap-8 items-stretch">
+					<!-- ---- REGULER ---- -->
+					<div class="ticket-card flex flex-col" data-package="Reguler" data-price="Rp 50.000">
+						<!-- top section -->
+						<div class="p-8 pb-6 flex-1">
+							<div class="flex items-center gap-3 mb-6">
+								<span class="text-2xl">🎟️</span>
+								<div>
+									<p class="text-xs text-gray-500 uppercase tracking-widest">Paket</p>
+									<h3 class="text-xl font-bold">REGULER</h3>
+								</div>
+							</div>
+							<div class="mb-6">
+								<p class="text-4xl font-extrabold">Rp 50K</p>
+								<p class="text-xs text-gray-500 mt-1">per tiket</p>
+							</div>
+							<ul class="space-y-3 text-sm text-gray-300">
+								<li class="flex gap-2">
+									<span class="text-purple-400">✓</span> Akses seluruh acara
+								</li>
+								<li class="flex gap-2">
+									<span class="text-purple-400">✓</span> Area penonton umum
+								</li>
+								<li class="flex gap-2">
+									<span class="text-gray-600">✗</span> <span class="text-gray-600">Merchandise eksklusif</span>
+								</li>
+								<li class="flex gap-2">
+									<span class="text-gray-600">✗</span> <span class="text-gray-600">Foto bersama bintang tamu</span>
+								</li>
+							</ul>
+						</div>
+						<!-- dashed divider notch -->
+						<div class="notch-row">
+							<div class="dot"></div>
+							<div class="line"></div>
+							<div class="dot"></div>
+						</div>
+						<!-- bottom CTA -->
+						<div class="p-6 pt-5">
+							<button onclick="openModal('Reguler', 'Rp 50.000')" class="w-full py-3 rounded-full border border-purple-600 text-purple-400 font-semibold text-sm hover:bg-purple-600 hover:text-white transition">
+								Pesan Sekarang
+							</button>
+						</div>
+					</div>
+
+					<!-- ---- FIRST CLASS (popular) ---- -->
+					<div class="ticket-card card-popular flex flex-col relative" data-package="First Class" data-price="Rp 120.000">
+						<div class="badge-popular">⭐ Popular</div>
+						<!-- top section -->
+						<div class="p-8 pb-6 flex-1">
+							<div class="flex items-center gap-3 mb-6">
+								<span class="text-2xl">💜</span>
+								<div>
+									<p class="text-xs text-purple-400 uppercase tracking-widest">Paket</p>
+									<h3 class="text-xl font-bold">FIRST CLASS</h3>
+								</div>
+							</div>
+							<div class="mb-6">
+								<p class="text-4xl font-extrabold text-purple-300">Rp 120K</p>
+								<p class="text-xs text-gray-500 mt-1">per tiket</p>
+							</div>
+							<ul class="space-y-3 text-sm text-gray-300">
+								<li class="flex gap-2">
+									<span class="text-purple-400">✓</span> Akses seluruh acara
+								</li>
+								<li class="flex gap-2">
+									<span class="text-purple-400">✓</span> Kursi prioritas (barisan depan)
+								</li>
+								<li class="flex gap-2">
+									<span class="text-purple-400">✓</span> Merchandise eksklusif
+								</li>
+								<li class="flex gap-2">
+									<span class="text-gray-600">✗</span> <span class="text-gray-600">Foto bersama bintang tamu</span>
+								</li>
+							</ul>
+						</div>
+						<div class="notch-row">
+							<div class="dot"></div>
+							<div class="line"></div>
+							<div class="dot"></div>
+						</div>
+						<div class="p-6 pt-5">
+							<button onclick="openModal('First Class', 'Rp 120.000')" class="w-full py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold text-sm hover:opacity-90 transition shadow-lg shadow-purple-900">
+								Pesan Sekarang
+							</button>
+						</div>
+					</div>
+
+					<!-- ---- VIP ---- -->
+					<div class="ticket-card flex flex-col" data-package="VIP" data-price="Rp 200.000">
+						<!-- top section -->
+						<div class="p-8 pb-6 flex-1">
+							<div class="flex items-center gap-3 mb-6">
+								<span class="text-2xl">👑</span>
+								<div>
+									<p class="text-xs text-yellow-500 uppercase tracking-widest">Paket</p>
+									<h3 class="text-xl font-bold text-yellow-300">VIP</h3>
+								</div>
+							</div>
+							<div class="mb-6">
+								<p class="text-4xl font-extrabold text-yellow-300">Rp 200K</p>
+								<p class="text-xs text-gray-500 mt-1">per tiket</p>
+							</div>
+							<ul class="space-y-3 text-sm text-gray-300">
+								<li class="flex gap-2">
+									<span class="text-yellow-400">✓</span> Akses seluruh acara
+								</li>
+								<li class="flex gap-2">
+									<span class="text-yellow-400">✓</span> Kursi VIP eksklusif
+								</li>
+								<li class="flex gap-2">
+									<span class="text-yellow-400">✓</span> Merchandise eksklusif
+								</li>
+								<li class="flex gap-2">
+									<span class="text-yellow-400">✓</span> Foto bersama bintang tamu
+								</li>
+							</ul>
+						</div>
+						<div class="notch-row">
+							<div class="dot"></div>
+							<div class="line"></div>
+							<div class="dot"></div>
+						</div>
+						<div class="p-6 pt-5">
+							<button onclick="openModal('VIP', 'Rp 200.000')" class="w-full py-3 rounded-full border border-yellow-500 text-yellow-400 font-semibold text-sm hover:bg-yellow-500 hover:text-black transition">
+								Pesan Sekarang
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- /grid -->
+
+				<!-- info strip -->
+				<div class="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-400">
+					<span class="flex items-center gap-2">
+						<span class="w-8 h-8 rounded-full bg-[#00AEEF] flex items-center justify-center text-xs font-bold text-white">Q</span> QRIS diterima
+					</span>
+					<span class="flex items-center gap-2">
+						<span class="w-8 h-8 rounded-full bg-[#5A2DE4] flex items-center justify-center text-xs font-bold text-white">O</span> OVO
+					</span>
+					<span class="flex items-center gap-2">
+						<span class="w-8 h-8 rounded-full bg-[#0052CC] flex items-center justify-center text-xs font-bold text-white">D</span> Dana
+					</span>
+					<span class="flex items-center gap-2">🔒 Pembayaran aman & terverifikasi</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===================== ORDER MODAL ===================== -->
+		<div id="order-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+			<div class="bg-[#0d0d0d] border border-[#2a2a2a] rounded-3xl w-full max-w-lg mx-4 overflow-hidden shadow-2xl">
+				<!-- Modal header -->
+				<div class="px-8 pt-7 pb-5 border-b border-[#2a2a2a] flex items-center justify-between">
+					<div>
+						<p class="text-xs text-gray-500 uppercase tracking-widest mb-1">PRADIPTA 2026</p>
+						<h2 id="modal-title" class="text-lg font-bold">
+							<span id="modal-package">First Class</span>
+							<span class="text-gray-500 font-normal">—</span>
+							<span id="modal-price" class="text-purple-400">Rp 120.000</span>
+						</h2>
+					</div>
+					<button onclick="closeModal()" class="text-gray-500 hover:text-white transition text-2xl leading-none">
+						&times;
+					</button>
+				</div>
+
+				<!-- Step indicator -->
+				<div class="flex items-center justify-center gap-3 py-4 border-b border-[#1a1a1a]">
+					<div id="step-1-dot" class="step-dot active"></div>
+					<div class="h-px w-10 bg-[#2a2a2a]"></div>
+					<div id="step-2-dot" class="step-dot"></div>
+					<div class="h-px w-10 bg-[#2a2a2a]"></div>
+					<div id="step-3-dot" class="step-dot"></div>
+				</div>
+
+				<!-- ===== STEP 1 – Biodata ===== -->
+				<div id="step-1" class="px-8 py-7">
+					<h3 class="text-base font-semibold mb-5">Isi Biodata Kamu</h3>
+					<div class="grid grid-cols-2 gap-4">
+						<input id="inp-nama" type="text" placeholder="Nama Lengkap" class="form-input col-span-2" />
+						<input id="inp-nis" type="text" placeholder="NIS" class="form-input" />
+						<input id="inp-kelas" type="text" placeholder="Kelas" class="form-input" />
+						<input id="inp-email" type="email" placeholder="E-mail" class="form-input col-span-2" />
+						<input id="inp-hp" type="tel" placeholder="No. HP / WhatsApp" class="form-input col-span-2" />
+					</div>
+					<label class="flex items-center gap-3 mt-5 cursor-pointer text-sm text-gray-400">
+						<input id="agree-check" type="checkbox" class="accent-purple-500 w-4 h-4" />
+						Saya menyetujui syarat dan ketentuan pembelian tiket.
+					</label>
+					<p id="step1-error" class="text-red-400 text-xs mt-3 hidden">
+						Harap lengkapi semua data dan centang persetujuan.
+					</p>
+					<button onclick="goStep(2)" class="mt-6 w-full py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 font-semibold text-sm hover:opacity-90 transition">
+						Lanjut ke Pembayaran →
+					</button>
+				</div>
+
+				<!-- ===== STEP 2 – Pembayaran ===== -->
+				<div id="step-2" class="px-8 py-7 hidden">
+					<h3 class="text-base font-semibold mb-5">Pilih Metode Pembayaran</h3>
+					<div class="space-y-3" id="pay-methods">
+						<button class="pay-btn" onclick="selectPay(this, 'QRIS')">
+							<span class="w-8 h-8 rounded-full bg-[#00AEEF] flex items-center justify-center text-xs font-bold">Q</span>
+							<span class="font-semibold">QRIS</span>
+							<span class="ml-auto text-gray-500 text-xs">Scan & Pay</span>
+						</button>
+						<button class="pay-btn" onclick="selectPay(this, 'OVO')">
+							<span class="w-8 h-8 rounded-full bg-[#5A2DE4] flex items-center justify-center text-xs font-bold">O</span>
+							<span class="font-semibold">OVO</span>
+							<span class="ml-auto text-gray-500 text-xs">Transfer wallet</span>
+						</button>
+						<button class="pay-btn" onclick="selectPay(this, 'Dana')">
+							<span class="w-8 h-8 rounded-full bg-[#0052CC] flex items-center justify-center text-xs font-bold">D</span>
+							<span class="font-semibold">Dana</span>
+							<span class="ml-auto text-gray-500 text-xs">Transfer wallet</span>
+						</button>
+					</div>
+					<p id="step2-error" class="text-red-400 text-xs mt-3 hidden">
+						Pilih metode pembayaran terlebih dahulu.
+					</p>
+					<div class="flex gap-3 mt-6">
+						<button onclick="goStep(1)" class="flex-1 py-3 rounded-full border border-white/20 text-sm hover:bg-white/10 transition">
+							← Kembali
+						</button>
+						<button onclick="goStep(3)" class="flex-1 py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 font-semibold text-sm hover:opacity-90 transition">
+							Konfirmasi →
+						</button>
+					</div>
+				</div>
+
+				<!-- ===== STEP 3 – Ringkasan ===== -->
+				<div id="step-3" class="px-8 py-7 hidden">
+					<h3 class="text-base font-semibold mb-5">Ringkasan Pesanan</h3>
+					<div class="bg-[#141414] rounded-2xl p-5 text-sm space-y-3 border border-[#2a2a2a]">
+						<div class="flex justify-between">
+							<span class="text-gray-400">Paket</span>
+							<span id="sum-package" class="font-semibold"></span>
+						</div>
+						<div class="flex justify-between">
+							<span class="text-gray-400">Harga</span>
+							<span id="sum-price" class="font-semibold text-purple-300"></span>
+						</div>
+						<div class="h-px bg-[#2a2a2a]"></div>
+						<div class="flex justify-between">
+							<span class="text-gray-400">Nama</span>
+							<span id="sum-nama" class="font-semibold"></span>
+						</div>
+						<div class="flex justify-between">
+							<span class="text-gray-400">NIS</span>
+							<span id="sum-nis" class="font-semibold"></span>
+						</div>
+						<div class="flex justify-between">
+							<span class="text-gray-400">Kelas</span>
+							<span id="sum-kelas" class="font-semibold"></span>
+						</div>
+						<div class="flex justify-between">
+							<span class="text-gray-400">E-mail</span>
+							<span id="sum-email" class="font-semibold text-xs break-all"></span>
+						</div>
+						<div class="flex justify-between">
+							<span class="text-gray-400">No. HP</span>
+							<span id="sum-hp" class="font-semibold"></span>
+						</div>
+						<div class="h-px bg-[#2a2a2a]"></div>
+						<div class="flex justify-between">
+							<span class="text-gray-400">Pembayaran</span>
+							<span id="sum-pay" class="font-semibold text-purple-300"></span>
+						</div>
+					</div>
+					<div class="flex gap-3 mt-6">
+						<button onclick="goStep(2)" class="flex-1 py-3 rounded-full border border-white/20 text-sm hover:bg-white/10 transition">
+							← Kembali
+						</button>
+						<button onclick="submitOrder()" class="flex-1 py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 font-semibold text-sm hover:opacity-90 transition">
+							Konfirmasi Pesanan ✓
+						</button>
+					</div>
+				</div>
+
+				<!-- ===== STEP 4 – Sukses ===== -->
+				<div id="step-success" class="px-8 py-12 hidden text-center">
+					<div class="pop-in text-6xl mb-4">🎉</div>
+					<h3 class="text-xl font-bold mb-2">Pesanan Berhasil!</h3>
+					<p class="text-gray-400 text-sm mb-2">
+						Terima kasih,
+						<strong id="success-name" class="text-white"></strong>!<br />
+						Tim kami akan segera menghubungi kamu via WhatsApp untuk konfirmasi pembayaran.
+					</p>
+					<p class="text-xs text-gray-500 mb-6">
+						Simpan nomor WA panitia:
+						<span class="text-white">082xxxxxxxxx</span>
+					</p>
+					<button onclick="closeModal()" class="px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 font-semibold text-sm hover:opacity-90 transition">
+						Tutup
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+
+		<!-- ===================== FOOTER ===================== -->
+	<footer class="relative bg-[#271043] font-['Poppins'] text-white py-14 px-6 md:py-20 md:px-10 overflow-hidden">
+		<!-- Background Texture -->
+		<div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')]"></div>
+
+		<div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+			<!-- Title -->
+			<div class="md:col-start-1 md:row-start-1">
+				<h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-8">
+					Contact Us
+				</h2>
+			</div>
+
+			<!-- Buttons (Admin Contacts) -->
+			<div class="flex flex-col gap-4 md:gap-8 justify-center md:col-start-2 md:row-start-1 md:row-span-2">
+				<a href="#" 
+					class="flex items-center gap-4 border border-white/40 rounded-xl px-8 py-2 hover:bg-white hover:text-purple-900 transition duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+					<!-- WhatsApp Icon -->
+					<svg xmlns="http://www.w3.org/2000/svg" 
+						class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21l1.65-5.95A8 8 0 1112 20a7.96 7.96 0 01-4.35-1.28L3 21z" />
+					</svg>
+					<span class="font-semibold tracking-wide">
+						CONTACT ADMIN 1
+					</span>
+				</a>
+
+				<!-- Button 2 -->
+				<a href="#" 
+					class="flex items-center gap-4 border border-white/40 rounded-xl px-8 py-2 hover:bg-white hover:text-purple-900 transition duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+					<svg xmlns="http://www.w3.org/2000/svg" 
+						class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21l1.65-5.95A8 8 0 1112 20a7.96 7.96 0 01-4.35-1.28L3 21z" />
+					</svg>
+					<span class="font-semibold tracking-wide">
+						CONTACT ADMIN 2
+					</span>
+				</a>
+			</div>
+
+			<!-- Details (Email, Address, WA) -->
+			<div class="space-y-6 text-gray-300 md:col-start-1 md:row-start-2">
+				<div>
+					<p class="text-sm opacity-70">
+						Email :
+					</p>
+					<p class="font-semibold">
+						pradiptaduaenam26@gmail.com
+					</p>
+				</div>
+
+				<div>
+					<p class="text-sm opacity-70">
+						Alamat :
+					</p>
+					<p class="font-semibold">
+						SMK Negeri 5 Malang
+					</p>
+					<p class="text-sm">
+						Jl. Terusan Ikan Piranha Atas No.50, Tunjungsekar, Lowokwaru, Kota Malang, Jawa Timur 65142
+					</p>
+				</div>
+
+				<div>
+					<p class="text-sm opacity-70">
+						Whatsapp Channel :
+					</p>
+					<p class="font-semibold">
+						PRADIPTA26
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bottom Section -->
+		<div class="relative max-w-7xl mx-auto mt-20 border-t border-white/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+			<!-- Social Media -->
+			<div class="flex items-center gap-6">
+				<span class="opacity-70">
+					Follow Us :
+				</span>
+
+				<a href="#" 
+					class="hover:scale-110 transition hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+					<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="w-6 h-6" />
+				</a>
+
+				<a href="#" 
+					class="hover:scale-110 transition hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+					<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="w-6 h-6" />
+				</a>
+
+				<a href="#" 
+					class="hover:scale-110 transition hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+					<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="w-6 h-6" />
+				</a>
+			</div>
+			<!-- Copyright -->
+			<div class="text-sm opacity-70 text-center">
+				Copyright © PRADIPTA 2026. All rights reserved.
+			</div>
+		</div>
+		
+	</footer>
+
+</html>

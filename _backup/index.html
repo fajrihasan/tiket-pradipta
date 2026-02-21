@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Pradipta 26</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+
+	<body class="bg-[linear-gradient(180deg,#2b0948,#7c2ca4)] animate-gradient overflow-x-hidden min-h-screen text-white">
+
+		<!-- Star Background -->
+		<div id="star-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+		<!-- NAVBAR -->
+		<nav class="bg-[#271043] font-['Poppins'] text-white fixed w-full z-50">
+			<div
+				class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+				<div class="flex items-center gap-4">
+					<!-- Hamburger (mobile) -->
+					<button
+						id="menu-btn"
+						class="md:hidden focus:outline-none">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-7 w-7"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor">
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M4 6h16M4 12h16M4 18h16"/>
+						</svg>
+					</button>
+
+					<!-- Logo -->
+					<div class="flex items-center gap-3">
+						<a href="index.html">
+							<img src="images/logo-pradipta.png" alt="PRADIPTA" class="h-8 w-auto" />
+						</a>
+					</div>
+				</div>
+
+				<!-- Desktop menu -->
+				<div class="hidden md:flex gap-8 text-sm">
+
+					<a href="index.html" 
+						class="hover:text-purple-400">
+						Home
+					</a>
+					<a href="index.html#contact" 
+						class="hover:text-purple-400">
+						Contact
+					</a>
+					<a href="#"
+						class="hover:text-purple-400">
+						Blog
+					</a>
+					<a href="ticket.html"
+						class="hover:text-purple-400">
+						Ticket
+					</a>
+				</div>
+			</div>
+
+			<!-- Mobile dropdown -->
+			<div id="mobile-menu"
+				class="hidden md:hidden flex flex-col bg-[#271043]/50 backdrop-blur-md px-6 pb-6 pt-4 space-y-4 text-sm items-center text-center">
+				<a href="index.html"
+					class="hover:text-purple-300">
+					Home
+				</a>
+				<a href="index.html#contact"
+					class="hover:text-purple-300">
+					Contact
+				</a>
+				<a href="#" 
+					class="hover:text-purple-300">
+					Blog
+				</a>
+				<a href="ticket.html"
+					class="hover:text-purple-300">
+					Ticket
+				</a>
+			</div>
+		</nav>
+
+		<!-- HERO BACKGROUND TEXT -->
+		<section class="relative min-h-screen flex items-center justify-center overflow-visible pt-28 px-4">
+
+			<div class="pointer-events-none absolute inset-0 flex justify-center overflow-hidden">
+
+				<div class="flex flex-col hero-scroll-text" style="animation: scroll-down 20s linear infinite;">
+					<!-- Set 1 -->
+					<div class="flex flex-col items-center gap-6 pb-6">
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="hidden md:block text-[180px] md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+					</div>
+					<!-- Set 2 -->
+					<div class="flex flex-col items-center gap-6 pb-6">
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="hidden md:block text-[180px] md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+					</div>
+					<!-- Set 3 -->
+					<div class="flex flex-col items-center gap-6 pb-6">
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="hidden md:block text-[180px] md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+					</div>
+					<!-- Set 4 -->
+					<div class="flex flex-col items-center gap-6 pb-6">
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+						<p class="hidden md:block text-[180px] md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap">
+							SOMETHING BIG IS COMING
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="relative z-10 w-full max-w-5xl mx-auto ticket-shell">
+
+				<div class="group relative flex flex-col md:flex-row items-stretch ticket-shape drop-shadow-[0_35px_35px_rgba(0,0,0,0.5)] transition-all duration-500 hover:drop-shadow-[0_45px_45px_rgba(0,0,0,0.6)]">
+
+					<div class="flex-1 bg-black text-white rounded-t-[32px] md:rounded-l-[32px] md:rounded-tr-none md:rounded-bl-[32px] py-8 md:py-10 px-6 md:px-14 border border-[#3b3b3b] ticket-main z-10">
+
+						<div class="flex justify-center gap-3 md:gap-6 text-center mb-8 countdown-wrapper">
+							<div>
+								<p class="text-sm uppercase tracking-[0.25em] text-gray-200">
+									Days
+								</p>
+								<p class="text-2xl md:text-6xl font-semibold">
+									<span class="countdown" data-unit="days"></span>
+								</p>
+							</div>
+							<div>
+								<p class="text-sm uppercase tracking-[0.25em] text-gray-200">
+									Hours
+								</p>
+								<p class="text-2xl md:text-6xl font-semibold">
+									<span class="countdown" data-unit="hours"></span>
+								</p>
+							</div>
+							<div>
+								<p class="text-sm uppercase tracking-[0.25em] text-gray-200">
+									Minutes
+								</p>
+								<p class="text-2xl md:text-6xl font-semibold">
+									<span class="countdown" data-unit="minutes"></span>
+								</p>
+							</div>
+							<div>
+								<p class="text-sm uppercase tracking-[0.25em] text-gray-200">
+									Seconds
+								</p>
+								<p class="text-2xl md:text-6xl font-semibold">
+									<span class="countdown" data-unit="seconds"></span>
+								</p>
+							</div>
+						</div>
+
+						<div class="flex items-center justify-center gap-4 mb-8 text-center">
+					
+							<span class="font-semibold text-sm md:text-base">
+								Secure Payment
+							</span>
+							
+							<div class="flex items-center gap-3">
+								<span class="w-10 h-10 rounded-full bg-[#00AEEF] flex items-center justify-center text-xs font-semibold">
+									QRIS
+								</span>
+								<span class="w-10 h-10 rounded-full bg-[#00B0FF] flex items-center justify-center text-xs font-semibold">
+									OVO
+								</span>
+								<span class="w-10 h-10 rounded-full bg-[#0052CC] flex items-center justify-center text-xs font-semibold">
+									Dana
+								</span>
+								
+							</div>
+						</div>
+
+						<div class="text-center text-sm text-gray-300 mb-8">
+							<p class="text-xs uppercase tracking-[0.25em] text-gray-300">
+								On the spot
+							</p>
+							<p class="text-lg font-semibold text-white">
+								SMK Negeri 5 Malang
+							</p>
+							<p class="text-xs md:text-sm text-gray-400 mt-2 max-w-xl md:max-w-none">
+								Jl. Terusan Ikan Piranha Atas No.50, Tunjungsekar, Kec. Lowokwaru, Kota Malang, Jawa Timur 65142
+							</p>
+						</div>
+
+						<div class="flex justify-center gap-4 md:gap-6">
+							<a href="ticket.html" 
+								class="px-6 md:px-8 py-3 bg-purple-600 rounded-full hover:bg-purple-700 transition text-sm font-semibold text-center">
+								Grab Yours Now
+							</a>
+							<button class="px-6 md:px-8 py-3 border border-white rounded-full hover:bg-white hover:text-black transition text-sm font-semibold text-center">
+								See Our Merch
+							</button>
+						</div>
+
+					</div>
+
+					<!-- TEAR LINE (Perforation) -->
+					<div class="relative z-20 flex items-center justify-center md:flex-col -my-0.5 md:-my-0 md:-mx-0.5">
+						<div class="w-[94%] h-[2px] md:w-[2px] md:h-[94%] border-t-2 md:border-t-0 md:border-l-2 border-dashed border-gray-600/50"></div>
+					</div>
+
+					<div class="relative w-full md:w-56 bg-[#1a1a1a] text-white rounded-b-[32px] md:rounded-r-[32px] md:rounded-bl-none border border-[#3b3b3b] md:border-l-0 flex flex-col items-center md:justify-center px-6 py-4 ticket-stub z-10 transition-transform duration-500 ease-out group-hover:translate-y-1 md:group-hover:translate-x-1 md:group-hover:translate-y-0 group-hover:rotate-[0.5deg] origin-top-left">
+						<div class="flex flex-col items-center md:-rotate-90 md:w-[400px]">
+							<!-- DOTS -->
+							<div class="flex gap-4 mb-4">
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+								<span class="w-3 h-3 rounded-full bg-purple-900"></span>
+							</div>
+							<!-- TEXT INSIDE STUB -->
+							<div class="text-center">
+								<span class="text-5xl md:text-6xl font-extrabold leading-none tracking-tight">
+									PRADIPTA
+								</span>
+								<p class="text-xs tracking-[0.3em] uppercase text-gray-400 mt-2">
+									Bright Steps, Radiant Future
+								</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+
+		<!-- SPONSOR RUNNING TEXT -->
+		<section class="bg-[#271043] backdrop-blur-sm py-6 overflow-hidden border-y border-white/10 relative z-20">
+			<div class="marquee-track reverse">
+				<div class="marquee-group">
+					<span class="text-xl md:text-3xl font-bold text-white/30 uppercase tracking-[0.2em] mx-4">OFFICIAL SPONSOR</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-500 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-white/30 uppercase tracking-[0.2em] mx-4">MEDIA PARTNER</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-500 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-white/30 uppercase tracking-[0.2em] mx-4">SUPPORTED BY</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-500 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-white/30 uppercase tracking-[0.2em] mx-4">OFFICIAL SPONSOR</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-500 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-white/30 uppercase tracking-[0.2em] mx-4">MEDIA PARTNER</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-500 mx-4">★</span>
+				</div>
+				<div class="marquee-group">
+					<span class="text-xl md:text-3xl font-bold text-white/30 uppercase tracking-[0.2em] mx-4">OFFICIAL SPONSOR</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-500 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-white/30 uppercase tracking-[0.2em] mx-4">MEDIA PARTNER</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-500 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-white/30 uppercase tracking-[0.2em] mx-4">SUPPORTED BY</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-500 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-white/30 uppercase tracking-[0.2em] mx-4">OFFICIAL SPONSOR</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-500 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-white/30 uppercase tracking-[0.2em] mx-4">MEDIA PARTNER</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-500 mx-4">★</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- ABOUT SECTION -->
+		<section class="relative bg-transparent py-20 px-6 md:px-16 overflow-hidden">
+			<!-- Background Texture -->
+			<div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')]"></div>
+
+			<!-- Content Wrapper -->
+			<div class="relative max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between gap-16 md:gap-24 px-4">
+				<!-- LEFT : ID CARD -->
+				<div class="w-full md:w-auto flex justify-center md:justify-start -mt-12 md:-mt-24 relative z-30">
+					<img src="images/idcard.png" 
+						alt="PRADIPTA ID Card" 
+						class="w-64 md:w-96 h-auto drop-shadow-2xl hover:scale-105 transition duration-300" />
+				</div>
+
+				<!-- RIGHT : CARDS -->
+				<div class="w-full md:flex-1 grid md:grid-cols-3 gap-6 md:gap-10">
+					<!-- Card 1 -->
+					<div class="relative bg-[#271043] font-['Poppins'] rounded-3xl p-8 shadow-[0_0_50px_rgba(237,209,52,0.15)] text-white transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_80px_rgba(237,209,52,0.3)]">
+						<div class="absolute -top-4 left-1/2 -translate-x-1/2 text-yellow-400 text-2xl">
+							👑
+						</div>
+						<h3 class="text-yellow-400 text-center mb-4">
+							About PRADIPTA
+						</h3>
+						<p class="text-sm text-gray-300 text-center leading-relaxed">
+							PRADIPTA 2026 merupakan perayaan puncak perjalanan angkatan 2026 sebagai simbol perpisahan, apresiasi, dan awal langkah menuju masa depan.
+						</p>
+					</div>
+
+					<!-- Card 2 -->
+					<div class="relative bg-[#271043] font-['Poppins'] rounded-3xl p-8 shadow-[0_0_50px_rgba(237,209,52,0.15)] text-white transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_80px_rgba(237,209,52,0.3)]">
+						<div class="absolute -top-4 left-1/2 -translate-x-1/2 text-yellow-400 text-2xl">
+							💡
+						</div>
+						<h3 class="text-yellow-400 text-center mb-4">
+							Makna Acara
+						</h3>
+						<p class="text-sm text-gray-300 text-center leading-relaxed">
+							Rangkaian acara diawali sesi perpisahan dan refleksi perjalanan angkatan sebagai ruang apresiasi dan kebersamaan.
+						</p>
+					</div>
+
+					<!-- Card 3 -->
+					<div class="relative bg-[#271043] font-['Poppins'] rounded-3xl p-8 shadow-[0_0_50px_rgba(237,209,52,0.15)] text-white transition duration-300 hover:-translate-y-2 hover:shadow-[0_0_80px_rgba(237,209,52,0.3)]">
+						<div class="absolute -top-4 left-1/2 -translate-x-1/2 text-yellow-400 text-2xl">
+							☁️
+						</div>
+						<h3 class="text-yellow-400 text-center mb-4">
+							Closing Moment
+						</h3>
+						<p class="text-sm text-gray-300 text-center leading-relaxed">
+							Private party bertema Spark of Radiance menjadi simbol bahwa setiap akhir adalah awal yang baru.
+						</p>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+		<!-- GUEST STAR SECTION -->
+		<section class="relative bg-transparent py-32 overflow-hidden">
+
+			<div class="space-y-16">
+				<!-- ROW TEMPLATE -->
+				<div class="overflow-hidden">
+					<div class="marquee-track fast">
+						<div class="marquee-group">
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+						</div>
+
+						<!-- DUPLICATE -->
+						<div class="marquee-group">
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+							<div class="box"><img src="images/gs1.png" class="w-full h-full object-cover rounded-2xl" alt="GS 1"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ROW 2 -->
+				<div class="overflow-hidden">
+					<div class="marquee-track fast reverse">
+						<div class="marquee-group">
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+						</div>
+
+						<div class="marquee-group">
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+							<div class="box"><img src="images/gs2.png" class="w-full h-full object-cover rounded-2xl" alt="GS 2"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ROW 3 -->
+				<div class="overflow-hidden">
+					<div class="marquee-track fast">
+						<div class="marquee-group">
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+						</div>
+
+						<div class="marquee-group">
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+							<div class="box"><img src="images/gs3.png" class="w-full h-full object-cover rounded-2xl" alt="GS 3"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</section>
+
+		<!-- SPONSOR RUNNING TEXT BOTTOM -->
+		<section class="bg-white py-6 overflow-hidden border-y border-gray-200 relative z-20">
+			<div class="marquee-track">
+				<div class="marquee-group">
+					<span class="text-xl md:text-3xl font-bold text-gray-400 uppercase tracking-[0.2em] mx-4">OFFICIAL SPONSOR</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-600 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-gray-400 uppercase tracking-[0.2em] mx-4">MEDIA PARTNER</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-600 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-gray-400 uppercase tracking-[0.2em] mx-4">SUPPORTED BY</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-600 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-gray-400 uppercase tracking-[0.2em] mx-4">OFFICIAL SPONSOR</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-600 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-gray-400 uppercase tracking-[0.2em] mx-4">MEDIA PARTNER</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-600 mx-4">★</span>
+				</div>
+				<div class="marquee-group">
+					<span class="text-xl md:text-3xl font-bold text-gray-400 uppercase tracking-[0.2em] mx-4">OFFICIAL SPONSOR</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-600 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-gray-400 uppercase tracking-[0.2em] mx-4">MEDIA PARTNER</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-600 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-gray-400 uppercase tracking-[0.2em] mx-4">SUPPORTED BY</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-600 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-gray-400 uppercase tracking-[0.2em] mx-4">OFFICIAL SPONSOR</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-600 mx-4">★</span>
+					<span class="text-xl md:text-3xl font-bold text-gray-400 uppercase tracking-[0.2em] mx-4">MEDIA PARTNER</span>
+					<span class="text-xl md:text-3xl font-bold text-purple-600 mx-4">★</span>
+				</div>
+			</div>
+		</section>
+
+		<script src="script.js"></script>
+	</body>
+
+	<!-- FOOTER / CONTACT -->
+	<footer class="relative bg-[#271043] font-['Poppins'] text-white py-14 px-6 md:py-20 md:px-10 overflow-hidden">
+		<!-- Background Texture -->
+		<div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/asfalt-light.png')]"></div>
+
+		<div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+			<!-- Title -->
+			<div class="md:col-start-1 md:row-start-1">
+				<h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-8">
+					Contact Us
+				</h2>
+			</div>
+
+			<!-- Buttons (Admin Contacts) -->
+			<div class="flex flex-col gap-4 md:gap-8 justify-center md:col-start-2 md:row-start-1 md:row-span-2">
+				<a href="#" 
+					class="flex items-center gap-4 border border-white/40 rounded-xl px-8 py-2 hover:bg-white hover:text-purple-900 transition duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+					<!-- WhatsApp Icon -->
+					<svg xmlns="http://www.w3.org/2000/svg" 
+						class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21l1.65-5.95A8 8 0 1112 20a7.96 7.96 0 01-4.35-1.28L3 21z" />
+					</svg>
+					<span class="font-semibold tracking-wide">
+						CONTACT ADMIN 1
+					</span>
+				</a>
+
+				<!-- Button 2 -->
+				<a href="#" 
+					class="flex items-center gap-4 border border-white/40 rounded-xl px-8 py-2 hover:bg-white hover:text-purple-900 transition duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+					<svg xmlns="http://www.w3.org/2000/svg" 
+						class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21l1.65-5.95A8 8 0 1112 20a7.96 7.96 0 01-4.35-1.28L3 21z" />
+					</svg>
+					<span class="font-semibold tracking-wide">
+						CONTACT ADMIN 2
+					</span>
+				</a>
+			</div>
+
+			<!-- Details (Email, Address, WA) -->
+			<div class="space-y-6 text-gray-300 md:col-start-1 md:row-start-2">
+				<div>
+					<p class="text-sm opacity-70">
+						Email :
+					</p>
+					<p class="font-semibold">
+						pradiptaduaenam26@gmail.com
+					</p>
+				</div>
+
+				<div>
+					<p class="text-sm opacity-70">
+						Alamat :
+					</p>
+					<p class="font-semibold">
+						SMK Negeri 5 Malang
+					</p>
+					<p class="text-sm">
+						Jl. Terusan Ikan Piranha Atas No.50, Tunjungsekar, Lowokwaru, Kota Malang, Jawa Timur 65142
+					</p>
+				</div>
+
+				<div>
+					<p class="text-sm opacity-70">
+						Whatsapp Channel :
+					</p>
+					<p class="font-semibold">
+						PRADIPTA26
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bottom Section -->
+		<div class="relative max-w-7xl mx-auto mt-20 border-t border-white/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+			<!-- Social Media -->
+			<div class="flex items-center gap-6">
+				<span class="opacity-70">
+					Follow Us :
+				</span>
+
+				<a href="#" 
+					class="hover:scale-110 transition hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+					<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" class="w-6 h-6" />
+				</a>
+
+				<a href="#" 
+					class="hover:scale-110 transition hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+					<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" class="w-6 h-6" />
+				</a>
+
+				<a href="#" 
+					class="hover:scale-110 transition hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">
+					<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="w-6 h-6" />
+				</a>
+			</div>
+			<!-- Copyright -->
+			<div class="text-sm opacity-70 text-center">
+				Copyright © PRADIPTA 2026. All rights reserved.
+			</div>
+		</div>
+		
+	</footer>
+</html>
