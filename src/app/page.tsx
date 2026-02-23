@@ -1,9 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import Countdown from "@/components/Countdown";
-import qrLogo from "@/../public/images/qr.png";
-import ovoLogo from "@/../public/images/ovo.png";
-import danaLogo from "@/../public/images/dana.png";
 
 function HeroScrollText() {
   const lines = Array.from({ length: 5 });

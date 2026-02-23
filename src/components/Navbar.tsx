@@ -67,7 +67,7 @@ export default function Navbar() {
       <div
         className={`${
           menuOpen ? "" : "hidden"
-        } md:hidden flex flex-col bg-[#271043]/50 backdrop-blur-md px-6 text-sm divide-y divide-white/10`}
+        } md:hidden flex flex-col bg-[#271043]/50 backdrop-blur-md px-6 text-sm divide-y divide-white/10 mb-4`}
       >
         <Link
           href="/"
