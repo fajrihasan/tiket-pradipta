@@ -19,9 +19,9 @@ function HeroScrollText() {
                 key={i}
                 className={`${
                   i === 4 ? "hidden md:block" : ""
-                } text-7xl md:text-[180px] font-extrabold tracking-tight text-white leading-none whitespace-nowrap`}
+                } text-[11vw] md:text-[6vw] font-extrabold tracking-tight text-white leading-none whitespace-nowrap`}
               >
-                SOMETHING BIG IS COMING
+                SOMETHING BIG IS COMING SOMETHING BIG IS COMING SOMETHING BIG IS COMING
               </p>
             ))}
           </div>
@@ -150,6 +150,12 @@ export default function HomePage() {
     <>
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-visible pt-28 px-4">
+        {/* ORNAMEN: Background Ambient Glow (Aurora Effect) */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[10%] left-[10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-600/20 rounded-full blur-[80px] md:blur-[120px] animate-pulse mix-blend-screen" />
+          <div className="absolute bottom-[10%] right-[10%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-pink-600/20 rounded-full blur-[80px] md:blur-[100px] mix-blend-screen" />
+        </div>
+
         <HeroScrollText />
 
         <div className="relative z-10 w-full max-w-5xl mx-auto ticket-shell">

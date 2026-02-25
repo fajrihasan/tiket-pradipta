@@ -85,18 +85,9 @@ export default function TicketPage() {
             <div className="group flex flex-col md:flex-row w-full max-w-4xl drop-shadow-[0_10px_10px_rgba(234,179,8,0.1)] hover:drop-shadow-[0_20px_30px_rgba(234,179,8,0.2)] transition-all duration-500">
               <div className="flex-1 bg-[#0d0d0d] border border-yellow-500/50 border-b-0 md:border-b md:border-r-0 rounded-t-[32px] md:rounded-l-[32px] md:rounded-tr-none flex flex-col relative z-10">
                 <div className="p-8 pb-4 flex-1">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-2xl">👑</span>
-                  <div>
-                    <p className="text-xs text-yellow-500 uppercase tracking-widest">
-                      Paket
-                    </p>
-                    <h3 className="text-xl font-bold text-yellow-300">VIP</h3>
-                  </div>
-                </div>
                 <div className="mb-6">
                   <p className="text-4xl font-extrabold text-yellow-300">
-                    Rp 200K
+                    Rp 80.000
                   </p>
                   <p className="text-xs text-gray-500 mt-1">per tiket</p>
                 </div>
@@ -106,16 +97,9 @@ export default function TicketPage() {
                     acara
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-yellow-400">✓</span> Kursi VIP
-                    eksklusif
+                    <span className="text-yellow-400">✓</span> Konsumsi
                   </li>
                   <li className="flex gap-2">
-                    <span className="text-yellow-400">✓</span> Merchandise
-                    eksklusif
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-yellow-400">✓</span> Foto bersama
-                    bintang tamu
                   </li>
                 </ul>
               </div>
