@@ -2,11 +2,29 @@
 
 import { useState } from "react";
 
+declare global {
+  interface Window {
+    snap: {
+      pay: (
+        token: string,
+        options: {
+          onSuccess?: (result: any) => void;
+          onPending?: (result: any) => void;
+          onError?: (result: any) => void;
+          onClose?: () => void;
+        },
+      ) => void;
+    };
+  }
+}
+
 interface OrderModalProps {
   isOpen: boolean;
   onClose: () => void;
   packageName: string;
   price: string;
+  priceNumber: number;
+  eventId: string;
 }
 
 export default function OrderModal({
@@ -14,9 +32,10 @@ export default function OrderModal({
   onClose,
   packageName,
   price,
+  priceNumber,
+  eventId,
 }: OrderModalProps) {
   const [currentStep, setCurrentStep] = useState(1);
-  const [selectedPay, setSelectedPay] = useState("");
 
   // form fields
   const [nama, setNama] = useState("");
@@ -24,51 +43,108 @@ export default function OrderModal({
   const [kelas, setKelas] = useState("");
   const [email, setEmail] = useState("");
   const [hp, setHp] = useState("");
+  const [quantity, setQuantity] = useState(1);
   const [agreed, setAgreed] = useState(false);
 
-  // errors
+  // states
   const [step1Error, setStep1Error] = useState(false);
-  const [step2Error, setStep2Error] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState<
+    "idle" | "success" | "pending" | "error"
+  >("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   function resetAndClose() {
     setCurrentStep(1);
-    setSelectedPay("");
     setNama("");
     setNis("");
     setKelas("");
     setEmail("");
     setHp("");
+    setQuantity(1);
     setAgreed(false);
     setStep1Error(false);
-    setStep2Error(false);
+    setLoading(false);
+    setPaymentStatus("idle");
+    setErrorMsg("");
     onClose();
   }
 
-  function goStep(n: number | "success") {
-    if (n === 2) {
-      if (!nama || !nis || !kelas || !email || !hp || !agreed) {
-        setStep1Error(true);
-        return;
-      }
-      setStep1Error(false);
+  function goStep2() {
+    if (!nama || !nis || !kelas || !email || !hp || !agreed) {
+      setStep1Error(true);
+      setErrorMsg("");
+      return;
     }
-
-    if (n === 3) {
-      if (!selectedPay) {
-        setStep2Error(true);
-        return;
-      }
-      setStep2Error(false);
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setStep1Error(true);
+      setErrorMsg("Format email tidak valid.");
+      return;
     }
-
-    setCurrentStep(n as number);
+    setStep1Error(false);
+    setErrorMsg("");
+    setCurrentStep(2);
   }
 
-  function submitOrder() {
-    setCurrentStep(4); // success
+  async function handleBayar() {
+    setLoading(true);
+    setErrorMsg("");
+
+    try {
+      // Call API to create order + get snap token
+      const res = await fetch("/api/midtrans/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          buyer_name: nama,
+          buyer_email: email,
+          buyer_phone: hp,
+          event_id: eventId,
+          quantity,
+          amount: priceNumber,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.snap_token) {
+        setErrorMsg(data.error || "Gagal membuat transaksi");
+        setLoading(false);
+        return;
+      }
+
+      // Open Midtrans Snap popup
+      window.snap.pay(data.snap_token, {
+        onSuccess: () => {
+          setPaymentStatus("success");
+          setCurrentStep(3);
+          setLoading(false);
+        },
+        onPending: () => {
+          setPaymentStatus("pending");
+          setCurrentStep(3);
+          setLoading(false);
+        },
+        onError: () => {
+          setPaymentStatus("error");
+          setCurrentStep(3);
+          setLoading(false);
+        },
+        onClose: () => {
+          setLoading(false);
+        },
+      });
+    } catch (err) {
+      setErrorMsg("Terjadi kesalahan. Coba lagi.");
+      setLoading(false);
+    }
   }
 
   if (!isOpen) return null;
+
+  const totalPrice = priceNumber * quantity;
 
   return (
     <div
@@ -99,13 +175,11 @@ export default function OrderModal({
         </div>
 
         {/* Step indicator */}
-        {currentStep !== 4 && (
+        {currentStep !== 3 && (
           <div className="flex items-center justify-center gap-3 py-4 border-b border-[#1a1a1a]">
             <div className={`step-dot ${currentStep >= 1 ? "active" : ""}`} />
             <div className="h-px w-10 bg-[#2a2a2a]" />
             <div className={`step-dot ${currentStep >= 2 ? "active" : ""}`} />
-            <div className="h-px w-10 bg-[#2a2a2a]" />
-            <div className={`step-dot ${currentStep >= 3 ? "active" : ""}`} />
           </div>
         )}
 
@@ -149,6 +223,38 @@ export default function OrderModal({
                 value={hp}
                 onChange={(e) => setHp(e.target.value)}
               />
+
+              {/* Quantity */}
+              <div className="col-span-2">
+                <label className="block text-sm text-gray-400 mb-2">
+                  Jumlah Tiket
+                </label>
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    className="w-10 h-10 rounded-xl border border-white/20 text-white hover:bg-white/10 transition text-lg"
+                  >
+                    −
+                  </button>
+                  <span className="text-lg font-bold w-8 text-center">
+                    {quantity}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setQuantity(Math.min(10, quantity + 1))}
+                    className="w-10 h-10 rounded-xl border border-white/20 text-white hover:bg-white/10 transition text-lg"
+                  >
+                    +
+                  </button>
+                  <span className="text-sm text-gray-500 ml-2">
+                    Total:{" "}
+                    <span className="text-purple-400 font-semibold">
+                      Rp {totalPrice.toLocaleString("id-ID")}
+                    </span>
+                  </span>
+                </div>
+              </div>
             </div>
             <label className="flex items-center gap-3 mt-5 cursor-pointer text-sm text-gray-400">
               <input
@@ -161,86 +267,21 @@ export default function OrderModal({
             </label>
             {step1Error && (
               <p className="text-red-400 text-xs mt-3">
-                Harap lengkapi semua data dan centang persetujuan.
+                {errorMsg ||
+                  "Harap lengkapi semua data dan centang persetujuan."}
               </p>
             )}
             <button
-              onClick={() => goStep(2)}
+              onClick={goStep2}
               className="mt-6 w-full py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 font-semibold text-sm hover:opacity-90 transition"
             >
-              Lanjut ke Pembayaran →
+              Lanjut ke Ringkasan →
             </button>
           </div>
         )}
 
-        {/* STEP 2 – Pembayaran */}
+        {/* STEP 2 – Ringkasan + Bayar */}
         {currentStep === 2 && (
-          <div className="px-8 py-7">
-            <h3 className="text-base font-semibold mb-5">
-              Pilih Metode Pembayaran
-            </h3>
-            <div className="space-y-3">
-              {[
-                {
-                  method: "QRIS",
-                  color: "bg-[#00AEEF]",
-                  label: "Q",
-                  desc: "Scan & Pay",
-                },
-                {
-                  method: "OVO",
-                  color: "bg-[#5A2DE4]",
-                  label: "O",
-                  desc: "Transfer wallet",
-                },
-                {
-                  method: "Dana",
-                  color: "bg-[#0052CC]",
-                  label: "D",
-                  desc: "Transfer wallet",
-                },
-              ].map((pm) => (
-                <button
-                  key={pm.method}
-                  className={`pay-btn ${selectedPay === pm.method ? "selected" : ""}`}
-                  onClick={() => setSelectedPay(pm.method)}
-                >
-                  <span
-                    className={`w-8 h-8 rounded-full ${pm.color} flex items-center justify-center text-xs font-bold`}
-                  >
-                    {pm.label}
-                  </span>
-                  <span className="font-semibold">{pm.method}</span>
-                  <span className="ml-auto text-gray-500 text-xs">
-                    {pm.desc}
-                  </span>
-                </button>
-              ))}
-            </div>
-            {step2Error && (
-              <p className="text-red-400 text-xs mt-3">
-                Pilih metode pembayaran terlebih dahulu.
-              </p>
-            )}
-            <div className="flex gap-3 mt-6">
-              <button
-                onClick={() => goStep(1)}
-                className="flex-1 py-3 rounded-full border border-white/20 text-sm hover:bg-white/10 transition"
-              >
-                ← Kembali
-              </button>
-              <button
-                onClick={() => goStep(3)}
-                className="flex-1 py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 font-semibold text-sm hover:opacity-90 transition"
-              >
-                Konfirmasi →
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* STEP 3 – Ringkasan */}
-        {currentStep === 3 && (
           <div className="px-8 py-7">
             <h3 className="text-base font-semibold mb-5">Ringkasan Pesanan</h3>
             <div className="bg-[#141414] rounded-2xl p-5 text-sm space-y-3 border border-[#2a2a2a]">
@@ -251,6 +292,16 @@ export default function OrderModal({
               <div className="flex justify-between">
                 <span className="text-gray-400">Harga</span>
                 <span className="font-semibold text-purple-300">{price}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Jumlah</span>
+                <span className="font-semibold">{quantity} tiket</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Total</span>
+                <span className="font-bold text-purple-300">
+                  Rp {totalPrice.toLocaleString("id-ID")}
+                </span>
               </div>
               <div className="h-px bg-[#2a2a2a]" />
               <div className="flex justify-between">
@@ -273,47 +324,96 @@ export default function OrderModal({
                 <span className="text-gray-400">No. HP</span>
                 <span className="font-semibold">{hp}</span>
               </div>
-              <div className="h-px bg-[#2a2a2a]" />
-              <div className="flex justify-between">
-                <span className="text-gray-400">Pembayaran</span>
-                <span className="font-semibold text-purple-300">
-                  {selectedPay}
-                </span>
-              </div>
             </div>
+
+            {errorMsg && (
+              <p className="text-red-400 text-xs mt-3 text-center">
+                {errorMsg}
+              </p>
+            )}
+
             <div className="flex gap-3 mt-6">
               <button
-                onClick={() => goStep(2)}
-                className="flex-1 py-3 rounded-full border border-white/20 text-sm hover:bg-white/10 transition"
+                onClick={() => setCurrentStep(1)}
+                disabled={loading}
+                className="flex-1 py-3 rounded-full border border-white/20 text-sm hover:bg-white/10 transition disabled:opacity-50"
               >
                 ← Kembali
               </button>
               <button
-                onClick={submitOrder}
-                className="flex-1 py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 font-semibold text-sm hover:opacity-90 transition"
+                onClick={handleBayar}
+                disabled={loading}
+                className="flex-1 py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 font-semibold text-sm hover:opacity-90 transition disabled:opacity-50 flex items-center justify-center gap-2"
               >
-                Konfirmasi Pesanan ✓
+                {loading ? (
+                  <>
+                    <svg
+                      className="animate-spin w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                      />
+                    </svg>
+                    Memproses...
+                  </>
+                ) : (
+                  "Bayar Sekarang 💳"
+                )}
               </button>
             </div>
           </div>
         )}
 
-        {/* STEP 4 – Sukses */}
-        {currentStep === 4 && (
+        {/* STEP 3 – Result */}
+        {currentStep === 3 && (
           <div className="px-8 py-12 text-center">
-            <div className="pop-in text-6xl mb-4">🎉</div>
-            <h3 className="text-xl font-bold mb-2">Pesanan Berhasil!</h3>
-            <p className="text-gray-400 text-sm mb-2">
-              Terima kasih,{" "}
-              <strong className="text-white">{nama}</strong>!
-              <br />
-              Tim kami akan segera menghubungi kamu via WhatsApp untuk konfirmasi
-              pembayaran.
-            </p>
-            <p className="text-xs text-gray-500 mb-6">
-              Simpan nomor WA panitia:{" "}
-              <span className="text-white">082xxxxxxxxx</span>
-            </p>
+            {paymentStatus === "success" && (
+              <>
+                <div className="pop-in text-6xl mb-4">🎉</div>
+                <h3 className="text-xl font-bold mb-2">Pembayaran Berhasil!</h3>
+                <p className="text-gray-400 text-sm mb-2">
+                  Terima kasih, <strong className="text-white">{nama}</strong>!
+                  <br />
+                  Tiket QR Code akan dikirim ke email{" "}
+                  <strong className="text-purple-400">{email}</strong>.
+                </p>
+                <p className="text-xs text-gray-500 mb-6">
+                  Cek folder inbox atau spam jika belum muncul.
+                </p>
+              </>
+            )}
+            {paymentStatus === "pending" && (
+              <>
+                <div className="pop-in text-6xl mb-4">⏳</div>
+                <h3 className="text-xl font-bold mb-2">Menunggu Pembayaran</h3>
+                <p className="text-gray-400 text-sm mb-6">
+                  Selesaikan pembayaran kamu. Tiket QR akan dikirim via email
+                  setelah pembayaran dikonfirmasi.
+                </p>
+              </>
+            )}
+            {paymentStatus === "error" && (
+              <>
+                <div className="pop-in text-6xl mb-4">❌</div>
+                <h3 className="text-xl font-bold mb-2">Pembayaran Gagal</h3>
+                <p className="text-gray-400 text-sm mb-6">
+                  Terjadi kesalahan saat memproses pembayaran. Silakan coba
+                  lagi.
+                </p>
+              </>
+            )}
             <button
               onClick={resetAndClose}
               className="px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-violet-600 font-semibold text-sm hover:opacity-90 transition"
