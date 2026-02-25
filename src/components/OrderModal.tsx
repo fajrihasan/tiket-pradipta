@@ -116,8 +116,19 @@ export default function OrderModal({
       }
 
       // Open Midtrans Snap popup
+      const savedOrderId = data.order_id;
       window.snap.pay(data.snap_token, {
-        onSuccess: () => {
+        onSuccess: async () => {
+          // Call settle API to process tickets + email
+          try {
+            await fetch("/api/midtrans/settle", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ order_id: savedOrderId }),
+            });
+          } catch (e) {
+            console.error("Settle call failed:", e);
+          }
           setPaymentStatus("success");
           setCurrentStep(3);
           setLoading(false);
