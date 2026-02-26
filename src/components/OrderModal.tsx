@@ -45,6 +45,7 @@ export default function OrderModal({
   const [hp, setHp] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [agreed, setAgreed] = useState(false);
+  const [showTerms, setShowTerms] = useState(false);
 
   // states
   const [step1Error, setStep1Error] = useState(false);
@@ -67,6 +68,7 @@ export default function OrderModal({
     setLoading(false);
     setPaymentStatus("idle");
     setErrorMsg("");
+    setShowTerms(false);
     onClose();
   }
 
@@ -267,15 +269,26 @@ export default function OrderModal({
                 </div>
               </div>
             </div>
-            <label className="flex items-center gap-3 mt-5 cursor-pointer text-sm text-gray-400">
+            <div className="flex items-start gap-3 mt-5 text-sm text-gray-400">
               <input
                 type="checkbox"
-                className="accent-purple-500 w-4 h-4"
+                id="agree-checkbox"
+                className="accent-purple-500 w-4 h-4 mt-0.5 cursor-pointer"
                 checked={agreed}
                 onChange={(e) => setAgreed(e.target.checked)}
               />
-              Saya menyetujui syarat dan ketentuan pembelian tiket.
-            </label>
+              <label htmlFor="agree-checkbox" className="cursor-pointer leading-relaxed">
+                Saya menyetujui{" "}
+                <button
+                  type="button"
+                  onClick={() => setShowTerms(true)}
+                  className="text-purple-400 hover:text-purple-300 underline underline-offset-2 transition"
+                >
+                  syarat dan ketentuan
+                </button>{" "}
+                pembelian tiket.
+              </label>
+            </div>
             {step1Error && (
               <p className="text-red-400 text-xs mt-3">
                 {errorMsg ||
@@ -431,6 +444,39 @@ export default function OrderModal({
             >
               Tutup
             </button>
+          </div>
+        )}
+
+        {/* Terms Overlay Popup */}
+        {showTerms && (
+          <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
+            <div
+              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              onClick={() => setShowTerms(false)}
+            />
+            <div className="relative bg-[#1a1a1a] border border-[#2a2a2a] rounded-3xl p-8 max-w-sm w-full shadow-2xl pop-in">
+              <h4 className="text-xl font-bold mb-4 text-white">Syarat & Ketentuan</h4>
+              <div className="space-y-4 text-gray-300 text-sm leading-relaxed">
+                <p>
+                  1. Mohon pastikan <strong className="text-purple-400">E-mail</strong> dan <strong className="text-purple-400">Nomor WhatsApp</strong> yang Anda masukkan sudah benar.
+                </p>
+                <p>
+                  2. Tiket QR Code dan informasi penting lainnya akan dikirimkan melalui kontak yang Anda berikan.
+                </p>
+                <p>
+                  3. Panitia berhak menghubungi Anda melalui kontak tersebut untuk keperluan koordinasi acara.
+                </p>
+                <p>
+                  4. Tiket yang sudah dibeli tidak dapat di-refund namun dapat dipindahtangankan dengan konfirmasi ke panitia.
+                </p>
+              </div>
+              <button
+                onClick={() => setShowTerms(false)}
+                className="mt-8 w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold transition"
+              >
+                Saya Mengerti
+              </button>
+            </div>
           </div>
         )}
       </div>

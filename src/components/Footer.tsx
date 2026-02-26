@@ -20,7 +20,7 @@ export default function Footer() {
         {/* Buttons (Admin Contacts) */}
         <div className="flex flex-col gap-4 md:gap-8 justify-center md:col-start-2 md:row-start-1 md:row-span-2">
           <a
-            href="#"
+            href="https://wa.me/6287701685791"
             className="flex items-center gap-4 border border-white/40 rounded-xl px-8 py-2 hover:bg-white hover:text-purple-900 transition duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
           >
             <svg
@@ -41,7 +41,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="#"
+            href="https://wa.me/62895366895178"
             className="flex items-center gap-4 border border-white/40 rounded-xl px-8 py-2 hover:bg-white hover:text-purple-900 transition duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
           >
             <svg

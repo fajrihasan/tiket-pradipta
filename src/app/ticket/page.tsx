@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Script from "next/script";
+import Image from "next/image";
 import OrderModal from "@/components/OrderModal";
 import { createClient } from "@/lib/supabase/client";
 
@@ -157,23 +158,35 @@ export default function TicketPage() {
 
           {/* info strip */}
           <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-400">
-            <span className="flex items-center gap-2">
-              <span className="w-8 h-8 rounded-full bg-[#00AEEF] flex items-center justify-center text-xs font-bold text-white">
-                Q
-              </span>{" "}
-              QRIS diterima
+            <span className="flex items-center gap-3">
+              <Image
+                src="/images/qr.png"
+                alt="QRIS"
+                width={60}
+                height={30}
+                className="h-6 md:h-8 w-auto object-contain"
+              />
+              <span className="text-gray-400"></span>
             </span>
-            <span className="flex items-center gap-2">
-              <span className="w-8 h-8 rounded-full bg-[#5A2DE4] flex items-center justify-center text-xs font-bold text-white">
-                O
-              </span>{" "}
-              OVO
+            <span className="flex items-center gap-3">
+              <Image
+                src="/images/ovo.png"
+                alt="OVO"
+                width={60}
+                height={30}
+                className="h-5 md:h-7 w-auto object-contain"
+              />
+              <span className="text-gray-400"></span>
             </span>
-            <span className="flex items-center gap-2">
-              <span className="w-8 h-8 rounded-full bg-[#0052CC] flex items-center justify-center text-xs font-bold text-white">
-                D
-              </span>{" "}
-              Dana
+            <span className="flex items-center gap-3">
+              <Image
+                src="/images/dana.png"
+                alt="Dana"
+                width={60}
+                height={30}
+                className="h-5 md:h-7 w-auto object-contain"
+              />
+              <span className="text-gray-400"></span>
             </span>
             <span className="flex items-center gap-2">
               🔒 Pembayaran aman & terverifikasi
