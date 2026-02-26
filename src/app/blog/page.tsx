@@ -35,6 +35,91 @@ export default function BlogPage() {
               </p>
             </div>
           </Link>
+
+          {/* Guest Star */}
+          <Link href="/blog/guest-star" className="group bg-[#271043]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-purple-500/50 transition duration-300 cursor-pointer">
+            {/* Image Placeholder */}
+            <div className="h-48 bg-purple-900/30 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-purple-900/40 transition">
+              <span className="text-4xl">🎤</span>
+            </div>
+            
+            {/* Text Content */}
+            <div className="space-y-3">
+              <div className="h-4 w-24 bg-purple-500/20 rounded-full"></div>
+              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition">Guest Star</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Siapa saja bintang tamu yang akan memeriahkan panggung Pradipta 2026? Cek di sini!
+              </p>
+            </div>
+          </Link>
+
+          {/* Rundown Acara */}
+          <Link href="/blog/rundown" className="group bg-[#271043]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-purple-500/50 transition duration-300 cursor-pointer">
+            {/* Image Placeholder */}
+            <div className="h-48 bg-purple-900/30 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-purple-900/40 transition">
+              <span className="text-4xl">🕒</span>
+            </div>
+            
+            {/* Text Content */}
+            <div className="space-y-3">
+              <div className="h-4 w-24 bg-purple-500/20 rounded-full"></div>
+              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition">Rundown Acara</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Jadwal lengkap rangkaian acara dari awal hingga akhir. Jangan sampai terlewat momen serunya.
+              </p>
+            </div>
+          </Link>
+
+          {/* Lokasi */}
+          <Link href="/blog/lokasi" className="group bg-[#271043]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-purple-500/50 transition duration-300 cursor-pointer">
+            {/* Image Placeholder */}
+            <div className="h-48 bg-purple-900/30 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-purple-900/40 transition">
+              <span className="text-4xl">📍</span>
+            </div>
+            
+            {/* Text Content */}
+            <div className="space-y-3">
+              <div className="h-4 w-24 bg-purple-500/20 rounded-full"></div>
+              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition">Lokasi & Venue</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Peta lokasi, denah venue, dan panduan akses menuju tempat acara berlangsung.
+              </p>
+            </div>
+          </Link>
+
+          {/* Sponsor */}
+          <Link href="/blog/sponsor" className="group bg-[#271043]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-purple-500/50 transition duration-300 cursor-pointer">
+            {/* Image Placeholder */}
+            <div className="h-48 bg-purple-900/30 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-purple-900/40 transition">
+              <span className="text-4xl">🤝</span>
+            </div>
+            
+            {/* Text Content */}
+            <div className="space-y-3">
+              <div className="h-4 w-24 bg-purple-500/20 rounded-full"></div>
+              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition">Sponsor & Partner</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Terima kasih kepada para sponsor dan media partner yang telah mendukung acara ini.
+              </p>
+            </div>
+          </Link>
+
+          {/* Film Kita */}
+          <Link href="/blog/film" className="group bg-[#271043]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-purple-500/50 transition duration-300 cursor-pointer">
+            {/* Image Placeholder */}
+            <div className="h-48 bg-purple-900/30 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-purple-900/40 transition">
+              <span className="text-4xl">🎬</span>
+            </div>
+            
+            {/* Text Content */}
+            <div className="space-y-3">
+              <div className="h-4 w-24 bg-purple-500/20 rounded-full"></div>
+              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition">Film Kita</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Dokumentasi perjalanan angkatan 2026 dalam sebuah karya film pendek yang menyentuh hati.
+              </p>
+            </div>
+          </Link>
         </div>
       </div>
     </section>

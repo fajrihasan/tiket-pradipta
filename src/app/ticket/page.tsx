@@ -55,13 +55,6 @@ export default function TicketPage() {
       {/* HERO */}
       <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-24 pb-10">
         {/* background watermark text */}
-        <div className="bg-text-loop">
-          <p>GET YOUR TICKET NOW.</p>
-          <p className="translate-x-8">GET YOUR TICKET NOW.</p>
-          <p className="-translate-x-8">GET YOUR TICKET NOW.</p>
-          <p className="hidden md:block translate-x-16">GET YOUR TICKET NOW.</p>
-        </div>
-
         {/* hero content */}
         <div className="relative z-10 text-center px-4">
           <p className="text-xs uppercase tracking-[0.35em] text-purple-400 mb-4">
@@ -109,7 +102,7 @@ export default function TicketPage() {
 
           {/* cards grid */}
           <div className="flex justify-center">
-            {/* VIP */}
+            {/* Ticket Card */}
             <div className="group flex flex-col md:flex-row w-full max-w-4xl drop-shadow-[0_10px_10px_rgba(234,179,8,0.1)] hover:drop-shadow-[0_20px_30px_rgba(234,179,8,0.2)] transition-all duration-500">
               <div className="flex-1 bg-[#0d0d0d] border border-yellow-500/50 border-b-0 md:border-b md:border-r-0 rounded-t-[32px] md:rounded-l-[32px] md:rounded-tr-none flex flex-col relative z-10">
                 <div className="p-8 pb-4 flex-1">
@@ -132,7 +125,7 @@ export default function TicketPage() {
                 </div>
                 <div className="p-6 pt-4">
                   <button
-                    onClick={() => openModal("VIP", "Rp 80.000", 80000)}
+                    onClick={() => openModal("Tiket Masuk", "Rp 80.000", 80000)}
                     className="w-full py-3 rounded-full border border-yellow-500 text-yellow-400 font-semibold text-sm hover:bg-yellow-500 hover:text-black transition"
                   >
                     Pesan Sekarang
