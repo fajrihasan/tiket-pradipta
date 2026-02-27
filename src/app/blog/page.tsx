@@ -20,16 +20,16 @@ export default function BlogPage() {
 
         {/* Content Grid */}
         <div className="grid md:grid-cols-3 gap-8 justify-center">
-          <Link href="/blog/sinopsis" className="group bg-[#271043]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-purple-500/50 transition duration-300 cursor-pointer">
+          <Link href="/blog/sinopsis" className="group bg-[#271043] border border-white/10 rounded-3xl p-6 hover:border-yellow-500/50 drop-shadow-[0_10px_10px_rgba(234,179,8,0.1)] hover:drop-shadow-[0_20px_30px_rgba(234,179,8,0.2)] transition duration-300 cursor-pointer">
             {/* Image Placeholder */}
-            <div className="h-48 bg-purple-900/30 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-purple-900/40 transition">
+            <div className="h-48 bg-[#300b4e] rounded-2xl mb-6 flex items-center justify-center">
               <span className="text-4xl">📜</span>
             </div>
             
             {/* Text Content */}
             <div className="space-y-3">
               <div className="h-4 w-24 bg-purple-500/20 rounded-full"></div>
-              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition">Sinopsis</h3>
+              <h3 className="text-xl font-bold text-white">Sinopsis</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Gambaran umum mengenai alur cerita, tema besar, dan makna di balik acara Pradipta 2026.
               </p>
@@ -37,16 +37,16 @@ export default function BlogPage() {
           </Link>
 
           {/* Guest Star */}
-          <Link href="/blog/guest-star" className="group bg-[#271043]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-purple-500/50 transition duration-300 cursor-pointer">
+          <Link href="/blog/guest-star" className="group bg-[#271043] border border-white/10 rounded-3xl p-6 hover:border-yellow-500/50 drop-shadow-[0_10px_10px_rgba(234,179,8,0.1)] hover:drop-shadow-[0_20px_30px_rgba(234,179,8,0.2)] transition duration-300 cursor-pointer">
             {/* Image Placeholder */}
-            <div className="h-48 bg-purple-900/30 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-purple-900/40 transition">
+            <div className="h-48 bg-[#300b4e] rounded-2xl mb-6 flex items-center justify-center">
               <span className="text-4xl">🎤</span>
             </div>
             
             {/* Text Content */}
             <div className="space-y-3">
               <div className="h-4 w-24 bg-purple-500/20 rounded-full"></div>
-              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition">Guest Star</h3>
+              <h3 className="text-xl font-bold text-white">Guest Star</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Siapa saja bintang tamu yang akan memeriahkan panggung Pradipta 2026? Cek di sini!
               </p>
@@ -54,16 +54,16 @@ export default function BlogPage() {
           </Link>
 
           {/* Rundown Acara */}
-          <Link href="/blog/rundown" className="group bg-[#271043]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-purple-500/50 transition duration-300 cursor-pointer">
+          <Link href="/blog/rundown" className="group bg-[#271043] border border-white/10 rounded-3xl p-6 hover:border-yellow-500/50 drop-shadow-[0_10px_10px_rgba(234,179,8,0.1)] hover:drop-shadow-[0_20px_30px_rgba(234,179,8,0.2)] transition duration-300 cursor-pointer">
             {/* Image Placeholder */}
-            <div className="h-48 bg-purple-900/30 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-purple-900/40 transition">
+            <div className="h-48 bg-[#300b4e] rounded-2xl mb-6 flex items-center justify-center">
               <span className="text-4xl">🕒</span>
             </div>
             
             {/* Text Content */}
             <div className="space-y-3">
               <div className="h-4 w-24 bg-purple-500/20 rounded-full"></div>
-              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition">Rundown Acara</h3>
+              <h3 className="text-xl font-bold text-white">Rundown Acara</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Jadwal lengkap rangkaian acara dari awal hingga akhir. Jangan sampai terlewat momen serunya.
               </p>
@@ -71,16 +71,16 @@ export default function BlogPage() {
           </Link>
 
           {/* Lokasi */}
-          <Link href="/blog/lokasi" className="group bg-[#271043]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-purple-500/50 transition duration-300 cursor-pointer">
+          <Link href="/blog/lokasi" className="group bg-[#271043] border border-white/10 rounded-3xl p-6 hover:border-yellow-500/50 drop-shadow-[0_10px_10px_rgba(234,179,8,0.1)] hover:drop-shadow-[0_20px_30px_rgba(234,179,8,0.2)] transition duration-300 cursor-pointer">
             {/* Image Placeholder */}
-            <div className="h-48 bg-purple-900/30 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-purple-900/40 transition">
+            <div className="h-48 bg-[#300b4e] rounded-2xl mb-6 flex items-center justify-center">
               <span className="text-4xl">📍</span>
             </div>
             
             {/* Text Content */}
             <div className="space-y-3">
               <div className="h-4 w-24 bg-purple-500/20 rounded-full"></div>
-              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition">Lokasi & Venue</h3>
+              <h3 className="text-xl font-bold text-white">Lokasi & Venue</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Peta lokasi, denah venue, dan panduan akses menuju tempat acara berlangsung.
               </p>
@@ -88,16 +88,16 @@ export default function BlogPage() {
           </Link>
 
           {/* Sponsor */}
-          <Link href="/blog/sponsor" className="group bg-[#271043]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-purple-500/50 transition duration-300 cursor-pointer">
+          <Link href="/blog/sponsor" className="group bg-[#271043] border border-white/10 rounded-3xl p-6 hover:border-yellow-500/50 drop-shadow-[0_10px_10px_rgba(234,179,8,0.1)] hover:drop-shadow-[0_20px_30px_rgba(234,179,8,0.2)] transition duration-300 cursor-pointer">
             {/* Image Placeholder */}
-            <div className="h-48 bg-purple-900/30 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-purple-900/40 transition">
+            <div className="h-48 bg-[#300b4e] rounded-2xl mb-6 flex items-center justify-center">
               <span className="text-4xl">🤝</span>
             </div>
             
             {/* Text Content */}
             <div className="space-y-3">
               <div className="h-4 w-24 bg-purple-500/20 rounded-full"></div>
-              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition">Sponsor & Partner</h3>
+              <h3 className="text-xl font-bold text-white">Sponsor & Partner</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Terima kasih kepada para sponsor dan media partner yang telah mendukung acara ini.
               </p>
@@ -105,16 +105,16 @@ export default function BlogPage() {
           </Link>
 
           {/* Film Kita */}
-          <Link href="/blog/film" className="group bg-[#271043]/50 backdrop-blur-sm border border-white/10 rounded-3xl p-6 hover:border-purple-500/50 transition duration-300 cursor-pointer">
+          <Link href="/blog/film" className="group bg-[#271043] border border-white/10 rounded-3xl p-6 hover:border-yellow-500/50 drop-shadow-[0_10px_10px_rgba(234,179,8,0.1)] hover:drop-shadow-[0_20px_30px_rgba(234,179,8,0.2)] transition duration-300 cursor-pointer">
             {/* Image Placeholder */}
-            <div className="h-48 bg-purple-900/30 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-purple-900/40 transition">
+            <div className="h-48 bg-[#300b4e] rounded-2xl mb-6 flex items-center justify-center">
               <span className="text-4xl">🎬</span>
             </div>
             
             {/* Text Content */}
             <div className="space-y-3">
               <div className="h-4 w-24 bg-purple-500/20 rounded-full"></div>
-              <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition">Film Kita</h3>
+              <h3 className="text-xl font-bold text-white">Film Kita</h3>
               <p className="text-sm text-gray-400 leading-relaxed">
                 Dokumentasi perjalanan angkatan 2026 dalam sebuah karya film pendek yang menyentuh hati.
               </p>

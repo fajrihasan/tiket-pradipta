@@ -62,9 +62,7 @@ export default function TicketPage() {
             Pradipta 2026 · Spark of Radiance
           </p>
           <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-4">
-            Choose Your
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">
+            Get Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">
               Ticket
             </span>
           </h1>
@@ -89,18 +87,8 @@ export default function TicketPage() {
       </section>
 
       {/* TICKET CARDS */}
-      <section className="relative py-20 px-4 md:px-10">
+      <section className="relative pt-10 pb-20 px-4 md:px-10">
         <div className="max-w-6xl mx-auto">
-          {/* section heading */}
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3">
-              Pilih Paket Tiketmu
-            </h2>
-            <p className="text-gray-400 text-sm">
-              Semua paket sudah termasuk akses ke seluruh rangkaian acara.
-            </p>
-          </div>
-
           {/* cards grid */}
           <div className="flex justify-center">
             {/* Ticket Card */}
@@ -148,7 +136,7 @@ export default function TicketPage() {
                       ></span>
                     ))}
                   </div>
-                  <span className="text-lg font-extrabold text-yellow-900/30 tracking-[0.2em]">
+                  <span className="text-lg font-extrabold text-yellow-900 tracking-[0.2em]">
                     PRADIPTA
                   </span>
                 </div>
