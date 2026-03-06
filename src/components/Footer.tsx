@@ -20,7 +20,9 @@ export default function Footer() {
         {/* Buttons (Admin Contacts) */}
         <div className="flex flex-col gap-4 md:gap-8 justify-center md:col-start-2 md:row-start-1 md:row-span-2">
           <a
-            href="https://wa.me/6287701685791"
+            href="https://wa.me/087701685791"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-4 border border-white/40 rounded-xl px-8 py-2 hover:bg-white hover:text-purple-900 transition duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
           >
             <svg
@@ -41,7 +43,9 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://wa.me/62895366895178"
+            href="https://wa.me/0895366895178"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-4 border border-white/40 rounded-xl px-8 py-2 hover:bg-white hover:text-purple-900 transition duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
           >
             <svg
@@ -90,6 +94,8 @@ export default function Footer() {
           <span className="opacity-70">Follow Us :</span>
           <a
             href="https://www.instagram.com/pradipta26._/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:scale-110 transition hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
           >
             <Image
@@ -100,18 +106,22 @@ export default function Footer() {
             />
           </a>
           <a
-            href="#"
+            href="https://www.tiktok.com/@_pradiptadefiesta?_r=1&_t=ZS-94Sb8IDjU7l"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:scale-110 transition hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
           >
             <Image
               src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"
               width={24}
               height={24}
-              alt="YouTube"
+              alt="Tiktok"
             />
           </a>
           <a
             href="#"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:scale-110 transition hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]"
           >
             <Image

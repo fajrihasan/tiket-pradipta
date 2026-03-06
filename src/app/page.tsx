@@ -48,7 +48,7 @@ function SponsorMarquee({
       <span
         className={`text-xl md:text-3xl font-bold ${textColor} uppercase tracking-[0.2em] mx-4`}
       >
-        OFFICIAL SPONSOR
+        COMING SOON
       </span>
       <span className={`text-xl md:text-3xl font-bold ${starColor} mx-4`}>
         ★
@@ -56,7 +56,7 @@ function SponsorMarquee({
       <span
         className={`text-xl md:text-3xl font-bold ${textColor} uppercase tracking-[0.2em] mx-4`}
       >
-        MEDIA PARTNER
+        COMING SOON
       </span>
       <span className={`text-xl md:text-3xl font-bold ${starColor} mx-4`}>
         ★
@@ -64,7 +64,7 @@ function SponsorMarquee({
       <span
         className={`text-xl md:text-3xl font-bold ${textColor} uppercase tracking-[0.2em] mx-4`}
       >
-        SUPPORTED BY
+        COMING SOON
       </span>
       <span className={`text-xl md:text-3xl font-bold ${starColor} mx-4`}>
         ★
@@ -72,7 +72,7 @@ function SponsorMarquee({
       <span
         className={`text-xl md:text-3xl font-bold ${textColor} uppercase tracking-[0.2em] mx-4`}
       >
-        OFFICIAL SPONSOR
+        COMING SOON
       </span>
       <span className={`text-xl md:text-3xl font-bold ${starColor} mx-4`}>
         ★
@@ -80,7 +80,7 @@ function SponsorMarquee({
       <span
         className={`text-xl md:text-3xl font-bold ${textColor} uppercase tracking-[0.2em] mx-4`}
       >
-        MEDIA PARTNER
+        COMING SOON
       </span>
       <span className={`text-xl md:text-3xl font-bold ${starColor} mx-4`}>
         ★
@@ -171,22 +171,22 @@ export default function HomePage() {
                               <div className="flex items-center gap-6">
                                 
                                 <Image 
-                                  src="/images/qr.png"  
+                                  src="/images/qris.png"  
                                   alt="QRIS" 
                                   width={60} 
                                   height={30} 
                                   className="h-6 md:h-8 w-auto object-contain"
                                 />
                                 <Image 
-                                  src="/images/ovo.png" 
-                                  alt="OVO" 
+                                  src="/images/gopay.png" 
+                                  alt="GOPAY" 
                                   width={60} 
                                   height={30} 
                                   className="h-5 md:h-7 w-auto object-contain"
                                 />
                                 <Image 
                                   src="/images/dana.png" 
-                                  alt="Dana" 
+                                  alt="DANA" 
                                   width={60} 
                                   height={30} 
                                   className="h-5 md:h-7 w-auto object-contain"
@@ -315,9 +315,9 @@ export default function HomePage() {
       {/* GUEST STAR SECTION */}
       <section className="relative bg-transparent py-32 overflow-hidden">
         <div className="space-y-16">
-          <GuestStarRow image="/images/gs1.png" alt="GS 1" />
-          <GuestStarRow image="/images/gs2.png" alt="GS 2" reverse />
-          <GuestStarRow image="/images/gs3.png" alt="GS 3" />
+          <GuestStarRow image="/images/af.png" alt="GS 1" />
+          {/*<GuestStarRow image="/images/gs2.png" alt="GS 2" reverse />
+          {/* <GuestStarRow image="/images/gs3.png" alt="GS 3" /> */}
         </div>
       </section>
 
