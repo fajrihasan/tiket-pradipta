@@ -148,7 +148,7 @@ export default function TicketPage() {
           <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-gray-400">
             <span className="flex items-center gap-3">
               <Image
-                src="/images/qr.png"
+                src="/images/qris.png"
                 alt="QRIS"
                 width={60}
                 height={30}
@@ -158,8 +158,8 @@ export default function TicketPage() {
             </span>
             <span className="flex items-center gap-3">
               <Image
-                src="/images/ovo.png"
-                alt="OVO"
+                src="/images/gopay.png"
+                alt="GOPAY"
                 width={60}
                 height={30}
                 className="h-5 md:h-7 w-auto object-contain"
@@ -169,7 +169,7 @@ export default function TicketPage() {
             <span className="flex items-center gap-3">
               <Image
                 src="/images/dana.png"
-                alt="Dana"
+                alt="DANA"
                 width={60}
                 height={30}
                 className="h-5 md:h-7 w-auto object-contain"
