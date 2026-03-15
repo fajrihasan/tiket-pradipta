@@ -89,6 +89,10 @@ export default function TicketPage() {
       {/* TICKET CARDS */}
       <section className="relative pt-10 pb-20 px-4 md:px-10">
         <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-6xl font-extrabold text-center mb-10 tracking-wide">
+            PRESALE <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">1</span>
+          </h2>
+
           {/* cards grid */}
           <div className="flex justify-center">
             {/* Ticket Card */}
@@ -170,6 +174,15 @@ export default function TicketPage() {
               <Image
                 src="/images/dana.png"
                 alt="DANA"
+                width={60}
+                height={30}
+                className="h-5 md:h-7 w-auto object-contain"
+              />
+              </span>
+            <span className="flex items-center gap-3">
+              <Image
+                src="/images/bca.png"
+                alt="BCA"
                 width={60}
                 height={30}
                 className="h-5 md:h-7 w-auto object-contain"

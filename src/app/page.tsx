@@ -191,6 +191,13 @@ export default function HomePage() {
                                   height={30} 
                                   className="h-5 md:h-7 w-auto object-contain"
                                 />
+                                <Image 
+                                  src="/images/bca.png" 
+                                  alt="BCA" 
+                                  width={60} 
+                                  height={30} 
+                                  className="h-5 md:h-7 w-auto object-contain"
+                                />
                               </div>
                         </div>
 
