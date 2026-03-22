@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { snap } from "@/lib/midtrans";
 import { supabaseAdmin } from "@/lib/supabase/admin";
+import { getPresaleInfo } from "@/lib/presale";
 
 export async function POST(req: NextRequest) {
   try {
@@ -23,7 +24,20 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const totalPrice = amount * quantity;
+    // Fetch total sold tickets to determine presale price
+    const { data: soldData, error: countError } = await supabaseAdmin
+      .from("orders")
+      .select("quantity")
+      .eq("status", "paid");
+
+    let soldCount = 0;
+    if (!countError && soldData) {
+      soldCount = soldData.reduce((acc, order) => acc + (order.quantity || 0), 0);
+    }
+
+    const presaleInfo = getPresaleInfo(soldCount);
+    const actualPrice = presaleInfo.priceNumber;
+    const totalPrice = actualPrice * quantity;
 
     // Insert order (matching actual DB column names)
     const { data: order, error: orderError } = await supabaseAdmin
@@ -70,9 +84,9 @@ export async function POST(req: NextRequest) {
       item_details: [
         {
           id: event_id,
-          price: amount,
+          price: actualPrice,
           quantity: quantity,
-          name: `Tiket PRADIPTA 2026`,
+          name: `Tiket PRADIPTA (${presaleInfo.name})`,
         },
       ],
     };

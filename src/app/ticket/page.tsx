@@ -13,22 +13,46 @@ export default function TicketPage() {
   const [modalPriceNum, setModalPriceNum] = useState(0);
   const [eventId, setEventId] = useState("");
 
-  // Fetch first event ID on mount
+  // Presale States
+  const [presaleName, setPresaleName] = useState("PRESALE 1");
+  const [ticketPriceLabel, setTicketPriceLabel] = useState("Rp 80.000");
+  const [ticketPriceNum, setTicketPriceNum] = useState(80000);
+  const [stockText, setStockText] = useState("");
+  const [isLoadingInfo, setIsLoadingInfo] = useState(true);
+
+  // Fetch first event ID and presale info on mount
   useEffect(() => {
-    async function fetchEvent() {
+    async function fetchData() {
+      // Fetch Event ID
       const supabase = createClient();
       const { data, error } = await supabase
         .from("events")
         .select("id")
         .limit(1);
 
-      console.log("Events fetch:", { data, error });
-
       if (data && data.length > 0) {
         setEventId(data[0].id);
       }
+
+      // Fetch Presale Info
+      try {
+        const res = await fetch("/api/tickets/info");
+        if (res.ok) {
+          const presaleData = await res.json();
+          if (presaleData.name) {
+            setPresaleName(presaleData.name);
+            setTicketPriceLabel(presaleData.priceLabel);
+            setTicketPriceNum(presaleData.priceNumber);
+            setStockText(presaleData.stockText || "");
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch presale info", err);
+      } finally {
+        setIsLoadingInfo(false);
+      }
     }
-    fetchEvent();
+    fetchData();
   }, []);
 
   function openModal(pkg: string, price: string, priceNum: number) {
@@ -48,7 +72,7 @@ export default function TicketPage() {
     <>
       {/* Midtrans Snap JS */}
       <Script
-        src="https://app.sandbox.midtrans.com/snap/snap.js"
+        src="https://app.midtrans.com/snap/snap.js"
         data-client-key={process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY}
         strategy="lazyOnload"
       />
@@ -90,7 +114,10 @@ export default function TicketPage() {
       <section className="relative pt-10 pb-20 px-4 md:px-10">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-6xl font-extrabold text-center mb-10 tracking-wide">
-            PRESALE <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">1</span>
+            {presaleName.split(" ")[0] || "PRESALE"}{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-200">
+              {presaleName.split(" ")[1] || "1"}
+            </span>
           </h2>
 
           {/* cards grid */}
@@ -101,9 +128,11 @@ export default function TicketPage() {
                 <div className="p-8 pb-4 flex-1">
                   <div className="mb-6">
                     <p className="text-4xl font-extrabold text-yellow-300">
-                      Rp 80.000
+                      {isLoadingInfo ? "..." : ticketPriceLabel}
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">per tiket</p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      per tiket {stockText && <><span className="mx-2">•</span><span className="text-yellow-400/80 font-medium">{stockText}</span></>}
+                    </p>
                   </div>
                   <ul className="space-y-3 text-sm text-gray-300">
                     <li className="flex gap-2">
@@ -118,10 +147,11 @@ export default function TicketPage() {
                 </div>
                 <div className="p-6 pt-4">
                   <button
-                    onClick={() => openModal("Tiket Masuk", "Rp 80.000", 80000)}
-                    className="w-full py-3 rounded-full border border-yellow-500 text-yellow-400 font-semibold text-sm hover:bg-yellow-500 hover:text-black transition"
+                    onClick={() => openModal(`Tiket Masuk (${presaleName})`, ticketPriceLabel, ticketPriceNum)}
+                    disabled={isLoadingInfo}
+                    className="w-full py-3 rounded-full border border-yellow-500 text-yellow-400 font-semibold text-sm hover:bg-yellow-500 hover:text-black transition disabled:opacity-50"
                   >
-                    Pesan Sekarang
+                    {isLoadingInfo ? "Memuat..." : "Pesan Sekarang"}
                   </button>
                 </div>
               </div>
@@ -178,7 +208,7 @@ export default function TicketPage() {
                 height={30}
                 className="h-5 md:h-7 w-auto object-contain"
               />
-              </span>
+            </span>
             <span className="flex items-center gap-3">
               <Image
                 src="/images/bca.png"

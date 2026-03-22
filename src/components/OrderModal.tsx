@@ -56,6 +56,10 @@ export default function OrderModal({
   const [errorMsg, setErrorMsg] = useState("");
 
   function resetAndClose() {
+    if (paymentStatus === "success") {
+      window.location.reload();
+      return;
+    }
     setCurrentStep(1);
     setNama("");
     setNis("");
