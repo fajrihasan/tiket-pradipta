@@ -395,7 +395,7 @@ export default function OrderModal({
                     Rp {orderInfo?.unique_amount?.toLocaleString("id-ID") ?? "..."}
                   </p>
                   <p className="text-xs text-gray-500 mb-1">Bank Tujuan</p>
-                  <p className="text-lg font-semibold text-white mb-4">BCA - 1234567890<br /><span className="text-sm font-normal text-gray-400">a.n. Pradipta Event</span></p>
+                  <p className="text-lg font-semibold text-white mb-4">BCA - 3850992770<br /><span className="text-sm font-normal text-gray-400">a.n. AZ ZAHRA ELEVANY YANUARY</span></p>
                   <p className="text-xs text-gray-400">
                     Sistem kami akan memverifikasi pembayaran Anda menggunakan kode unik <span className="font-bold text-white text-base">({orderInfo?.payment_code})</span> yang ditambahkan pada nominal. Tiket QR akan dikirim via email setelah admin mengkonfirmasi.
                   </p>
