@@ -14,7 +14,7 @@ export function getPresaleInfo(soldCount: number): PresaleInfo {
       priceNumber: 80000,
       stockText: `Sisa ${remaining} tiket`,
     };
-  } else if (soldCount < 287) { // 100 + 187
+  } else if (soldCount < 287) {  
     const remaining = 287 - soldCount;
     return {
       name: "PRESALE 2",
@@ -27,7 +27,7 @@ export function getPresaleInfo(soldCount: number): PresaleInfo {
       name: "PRESALE 3",
       priceLabel: "Rp 100.000",
       priceNumber: 100000,
-      stockText: "Stok Terbatas",
+      stockText: "",
     };
   }
 }

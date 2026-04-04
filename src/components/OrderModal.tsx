@@ -2,22 +2,6 @@
 
 import { useState } from "react";
 
-declare global {
-  interface Window {
-    snap: {
-      pay: (
-        token: string,
-        options: {
-          onSuccess?: (result: any) => void;
-          onPending?: (result: any) => void;
-          onError?: (result: any) => void;
-          onClose?: () => void;
-        },
-      ) => void;
-    };
-  }
-}
-
 interface OrderModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -94,13 +78,15 @@ export default function OrderModal({
     setCurrentStep(2);
   }
 
+  const [orderInfo, setOrderInfo] = useState<{ payment_code: string, unique_amount: number } | null>(null);
+
   async function handleBayar() {
     setLoading(true);
     setErrorMsg("");
 
     try {
-      // Call API to create order + get snap token
-      const res = await fetch("/api/midtrans/create", {
+      // Call new manual order creation API
+      const res = await fetch("/api/orders/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -109,52 +95,26 @@ export default function OrderModal({
           buyer_phone: hp,
           event_id: eventId,
           quantity,
-          amount: priceNumber,
         }),
       });
 
       const data = await res.json();
 
-      if (!res.ok || !data.snap_token) {
+      if (!res.ok || !data.order_id) {
         setErrorMsg(data.error || "Gagal membuat transaksi");
         setLoading(false);
         return;
       }
 
-      // Open Midtrans Snap popup
-      const savedOrderId = data.order_id;
-      window.snap.pay(data.snap_token, {
-        onSuccess: async () => {
-          // Call settle API to process tickets + email
-          try {
-            await fetch("/api/midtrans/settle", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ order_id: savedOrderId }),
-            });
-          } catch (e) {
-            console.error("Settle call failed:", e);
-          }
-          setPaymentStatus("success");
-          setCurrentStep(3);
-          setLoading(false);
-        },
-        onPending: () => {
-          setPaymentStatus("pending");
-          setCurrentStep(3);
-          setLoading(false);
-        },
-        onError: () => {
-          setPaymentStatus("error");
-          setCurrentStep(3);
-          setLoading(false);
-        },
-        onClose: () => {
-          setLoading(false);
-        },
+      setOrderInfo({
+        payment_code: data.payment_code,
+        unique_amount: data.unique_amount
       });
+      setPaymentStatus("pending");
+      setCurrentStep(3);
     } catch (err) {
       setErrorMsg("Terjadi kesalahan. Coba lagi.");
+    } finally {
       setLoading(false);
     }
   }
@@ -424,21 +384,30 @@ export default function OrderModal({
             )}
             {paymentStatus === "pending" && (
               <>
-                <div className="pop-in text-6xl mb-4">⏳</div>
-                <h3 className="text-xl font-bold mb-2">Menunggu Pembayaran</h3>
-                <p className="text-gray-400 text-sm mb-6">
-                  Selesaikan pembayaran kamu. Tiket QR akan dikirim via email
-                  setelah pembayaran dikonfirmasi.
+                <div className="pop-in text-6xl mb-4">💳</div>
+                <h3 className="text-xl font-bold mb-2">Instruksi Pembayaran</h3>
+                <p className="text-gray-400 text-sm mb-4">
+                  Silakan transfer tepat sesuai jumlah berikut ke rekening di bawah ini.
                 </p>
+                <div className="bg-[#1a1a1a] p-5 rounded-2xl border border-purple-500/30 mb-6 text-left">
+                  <p className="text-xs text-gray-500 mb-1">Total Bayar (HARUS SAMA PERSIS)</p>
+                  <p className="text-2xl font-bold text-purple-400 mb-4">
+                    Rp {orderInfo?.unique_amount?.toLocaleString("id-ID") ?? "..."}
+                  </p>
+                  <p className="text-xs text-gray-500 mb-1">Bank Tujuan</p>
+                  <p className="text-lg font-semibold text-white mb-4">BCA - 1234567890<br /><span className="text-sm font-normal text-gray-400">a.n. Pradipta Event</span></p>
+                  <p className="text-xs text-gray-400">
+                    Sistem kami akan memverifikasi pembayaran Anda menggunakan kode unik <span className="font-bold text-white text-base">({orderInfo?.payment_code})</span> yang ditambahkan pada nominal. Tiket QR akan dikirim via email setelah admin mengkonfirmasi.
+                  </p>
+                </div>
               </>
             )}
             {paymentStatus === "error" && (
               <>
                 <div className="pop-in text-6xl mb-4">❌</div>
-                <h3 className="text-xl font-bold mb-2">Pembayaran Gagal</h3>
+                <h3 className="text-xl font-bold mb-2">Pemesanan Gagal</h3>
                 <p className="text-gray-400 text-sm mb-6">
-                  Terjadi kesalahan saat memproses pembayaran. Silakan coba
-                  lagi.
+                  Terjadi kesalahan. Silakan coba lagi.
                 </p>
               </>
             )}

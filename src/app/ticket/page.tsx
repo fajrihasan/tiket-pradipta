@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Script from "next/script";
 import Image from "next/image";
 import OrderModal from "@/components/OrderModal";
 import { createClient } from "@/lib/supabase/client";
@@ -70,17 +69,8 @@ export default function TicketPage() {
 
   return (
     <>
-      {/* Midtrans Snap JS */}
-      <Script
-        src="https://app.midtrans.com/snap/snap.js"
-        data-client-key={process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY}
-        strategy="lazyOnload"
-      />
-
       {/* HERO */}
       <section className="relative min-h-[55vh] flex items-center justify-center overflow-hidden pt-24 pb-10">
-        {/* background watermark text */}
-        {/* hero content */}
         <div className="relative z-10 text-center px-4">
           <p className="text-xs uppercase tracking-[0.35em] text-purple-400 mb-4">
             Pradipta 2026 · Spark of Radiance

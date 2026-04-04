@@ -9,7 +9,7 @@ export async function GET() {
     const { data, error } = await supabaseAdmin
       .from("orders")
       .select("quantity")
-      .eq("status", "paid");
+      .in("status", ["paid", "PAID"]);
 
     if (error) {
       console.error("Error fetching orders:", error);
