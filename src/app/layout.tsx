@@ -30,6 +30,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap"
           rel="stylesheet"
         />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4134298037889519" crossOrigin="anonymous"></script>
       </head>
       <body
         className={`${poppins.variable} font-[family-name:var(--font-poppins)] bg-[linear-gradient(180deg,#2b0948,#7c2ca4)] animate-gradient overflow-x-hidden min-h-screen text-white`}
